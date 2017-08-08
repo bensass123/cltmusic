@@ -1,0 +1,28 @@
+affiliates
+
+SNUG
+data at: http://snugrock.com/
+tix: tunestub.com
+affiliate program: yes
+https://ui.awin.com/merchant-profile/6199
+
+
+VISULITE
+http://www.visulite.com/upcomingShows.cfm
+no affiliate, in house
+
+NEIGHBORHOOD THEATRE
+http://www.neighborhoodtheatre.com/calendar/
+TIX: ticketfly.com
+AFFILIATE: http://start.ticketfly.com/affiliate/
+
+
+FOR EACH SHOW
+venue
+venue address (w phone)
+date time
+band
+description
+band webpage
+buy ticket address
+ticket price data
