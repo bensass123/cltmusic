@@ -11,12 +11,30 @@ nav .brand-logo {
   color: #444;
 }
 
+nav {
+  height: 5vh;
+}
+
+.nav-wrapper {
+  text-align: center;
+}
+
 p {
   line-height: 2rem;
 }
 
+.logo {
+  border-radius: 5px;
+}
+
+.navimage {
+  height: 5vh;
+  padding: 10px;
+  border-radius: 7px;
+}
+
 .title {
-    color: whitesmoke;
+
     text-shadow: 2px 2px 4px #000000;
     font-family: 'Permanent Marker', cursive;
 }
@@ -51,7 +69,22 @@ p {
   #index-banner .section {
     top: 0;
   }
+
+
+
+  .navimage {
+    height: 5vh;
+    padding: 2px;
+    border-radius: 2px;
+  }
+
+  nav {
+    height: 28vh;
+  }
+
 }
+
+
 
 
 
