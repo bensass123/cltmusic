@@ -1,0 +1,831 @@
+
+    <form method="post" action="/calendar.aspx" id="form">
+<div class="aspNetHidden">
+<input type="hidden" name="manScript_HiddenField" id="manScript_HiddenField" value="">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEyMTY0MTExOTEPZBYCAgEPFgIeBmFjdGlvbgUOL2NhbGVuZGFyLmFzcHgWAgIFD2QWAmYPDxYEHghDc3NDbGFzcwUPUGFnZVBsYWNlaG9sZGVyHgRfIVNCAgJkFgJmD2QWAgIDD2QWAmYPZBYCAgIPZBYCZg8PFgQfAQUPUGFnZVBsYWNlaG9sZGVyHwICAmQWAmYPZBYEAgEPZBYEAgEPZBYCAgIPFhQeDFplcm9Sb3dzVGV4dGUeDkRhdGFTb3VyY2VOYW1lZR4MRW5hYmxlUGFnaW5naB4QTmVzdGVkQ29udHJvbHNJRGUeEFNob3dEZWxldGVCdXR0b25oHh1BbHRlcm5hdGluZ1RyYW5zZm9ybWF0aW9uTmFtZWUeDlNob3dFZGl0QnV0dG9uaB4LXyFJdGVtQ291bnQCCB4SVHJhbnNmb3JtYXRpb25OYW1lBSVDTVMuRXZlbnQudGhlb3JpZ2luYWx0aW5yb29mLWZlYXR1cmVkHhZIaWRlQ29udHJvbEZvclplcm9Sb3dzZxYQZg9kFgJmD2QWAmYPFQxNL2dldGF0dGFjaG1lbnQvYjUxZWViN2YtNGVjZC00MDg4LWIwYzgtZWI2OGY2ZDZlODEwL0x1bmNoLURpbm5lci1hdC10aGUtUm9vZiFNL2dldGF0dGFjaG1lbnQvYjUxZWViN2YtNGVjZC00MDg4LWIwYzgtZWI2OGY2ZDZlODEwL0x1bmNoLURpbm5lci1hdC10aGUtUm9vZiEPT3VyIENoZWZzIFJvY2shD091ciBDaGVmcyBSb2NrIQRoaWRlBTExLzMwCDEwOjAwIFBNAHY8cD5PdXIgQ2hlZnMgaW4gdGhlIGtpdGNoZW4gYXJlIGp1c3QgYXMgYW1hemluZyBhcyB0aGUgbXVzaWNhbnMgb24gb3VyIHN0YWdlISBPcGVuIGRhaWx5IGZvciBsdW5jaCAmYW1wOyBkaW5uZXIhPC9wPg0KYDxwPjxhIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZG9jdW1lbnRzL3RyLW1lbnUtcGx1cy5wZGYiPk1vcmUgSW5mb3JtYXRpb248L2E+PC9wPgAAZAIBD2QWAmYPZBYCZg8VDFYvZ2V0YXR0YWNobWVudC84ZThkZTZkOS0zMTJhLTQ2ODUtYTA3NC0yNGYxYTc2NGM5ZGMvTWF5d2VhdGhlci12cy1NY2dyZWdvci1GaWdodC1QYXJ0eVYvZ2V0YXR0YWNobWVudC84ZThkZTZkOS0zMTJhLTQ2ODUtYTA3NC0yNGYxYTc2NGM5ZGMvTWF5d2VhdGhlci12cy1NY2dyZWdvci1GaWdodC1QYXJ0eSNNYXl3ZWF0aGVyIHZzLiBNY0dyZWdvciBXYXRjaCBQYXJ0eSNNYXl3ZWF0aGVyIHZzLiBNY0dyZWdvciBXYXRjaCBQYXJ0eQRudWxsBDgvMjYHODowMCBQTQCaAzxwPkVuam95IHRoZSBNYXl3ZWF0aGVyIHZzLiBNY0dyZWdvciBmaWdodCBhdCB0aGUgUm9vZiEgUHVyY2hhc2UgdGlja2V0cyBub3cgZm9yIHJlc2VydmVkIHNlYXRpbmcgb3IgZ2VuZXJhbCBhZG1pc3Npb24uIFVuZGVyY2FyZCBmaWdodHMgc3RhcnQgYXQgOSBidXQgY29tZSBlYXJseSB0byBzZWN1cmUgeW91ciBzcGFjZSBhbmQgZ3JhYiBzb21lIGZvb2QgJmFtcDsgZHJpbmtzLjwvcD4NCg0KPHA+RW50cnkgaW5jbHVkZXMgYWRtaXNzaW9uIHRvIHRoZSBwb3N0IGZpZ2h0IHBhcnR5LiBESiBzZXQgdG8gY29tZW5jZSBpbW1lZGlhdGVseSBhZnRlciB0aGUgZmlnaHQhJm5ic3A7PC9wPg0KDQo8cD5WSVAgVGFibGVzOiAkMTIwLSQxODA8L3A+DQoNCjxwPkdBOiAkMjUgaW4gYWR2YW5jZS8gJDMwIGF0IGRvb3IhPC9wPg0KXjxwPjxhIGhyZWY9Imh0dHA6Ly90cmNoYXJsb3R0ZS50dW5lc3R1Yi5jb20vZXZlbnQuY2ZtP2NhcnQmaWQ9MjY3MDczIj5Nb3JlIEluZm9ybWF0aW9uPC9hPjwvcD53PHAgY2xhc3M9ImJ1eSI+PGEgdGFyZ2V0ID0iX2JsYW5rIiBocmVmPSIgaHR0cDovL3RyY2hhcmxvdHRlLnR1bmVzdHViLmNvbS9ldmVudC5jZm0/Y2FydCZpZD0yNjcwNzMiPkJ1eSBUaWNrZXRzPC9hPjwvcD4AZAICD2QWAmYPZBYCZg8VDEIvZ2V0YXR0YWNobWVudC84Y2ZlMmRjMC1iNzc2LTQ1YzgtODNiNC0yNjViOTdlMTE3YjQvVml2YS1MYXMtVmVnYXNCL2dldGF0dGFjaG1lbnQvOGNmZTJkYzAtYjc3Ni00NWM4LTgzYjQtMjY1Yjk3ZTExN2I0L1ZpdmEtTGFzLVZlZ2FzDlZpdmEgTGFzIFZlZ2FzDlZpdmEgTGFzIFZlZ2FzBG51bGwEOC8yNAc1OjAwIFBNALYBPHA+UGxheSBhbGwgeW91ciBmYXZvcml0ZSBjYXNpbm8gZ2FtZXMgZnJvbSA1LTkgUE0gd2l0aCBwcm9jZWVkcyBiZW5lZml0dGluZyA8YSBocmVmPSJodHRwOi8vd3d3LnByb2plY3RwcmV2ZW50aW9uLm9yZy8iPlByb2plY3QgUHJldmVudGlvbjwvYT4hIExpdmUgbXVzaWMgYnkgQmFsZCBCcm90aGVyaG9vZC48L3A+DQo9PHA+PGEgaHJlZj0ifi9jYWxlbmRhci9jYXNpbm8tbmlnaHQiPk1vcmUgSW5mb3JtYXRpb248L2E+PC9wPgAAZAIDD2QWAmYPZBYCZg8VDGUvZ2V0YXR0YWNobWVudC8xODNjYjk0NS1hMTgwLTQwZjktOTY4My01NWQxYjE4MTZjMTkvTGluay1MaXN0ZW5lci1Qcml2YXRlLUFjb3VzdGljLVNlcmllcy1BbGwtQW1lcmljYWUvZ2V0YXR0YWNobWVudC8xODNjYjk0NS1hMTgwLTQwZjktOTY4My01NWQxYjE4MTZjMTkvTGluay1MaXN0ZW5lci1Qcml2YXRlLUFjb3VzdGljLVNlcmllcy1BbGwtQW1lcmljYV1MaW5rIExpc3RlbmVyIFByaXZhdGUgQWNvdXN0aWMgU2VyaWVzOiBKb2hubnkgUnplem5payBvZiB0aGUgR29vIEdvbyBEb2xscyAmIFBoaWxsaXAgUGhpbGxpcHNdTGluayBMaXN0ZW5lciBQcml2YXRlIEFjb3VzdGljIFNlcmllczogSm9obm55IFJ6ZXpuaWsgb2YgdGhlIEdvbyBHb28gRG9sbHMgJiBQaGlsbGlwIFBoaWxsaXBzBG51bGwEOC8yNwgxMjowMCBQTQDNAjxwPkxpbmsgQWNvdXN0aWMgU2VyaWVzIGF0IHRoZSBUaW4gUm9vZiBwcmVzZW50cyBKb2hubnkgUnplem5payBvZiB0aGUgR29vIEdvbyBEb2xscyBhbmQgUGhpbGxpcCBQaGlsbGlwcyEgPGEgaHJlZj0iaHR0cDovL3d3dy4xMDc5dGhlbGluay5jb20vY29udGVzdC93aW4tbGluay1hY291c3RpYy1zZXJpZXMtam9obm55LXJ6ZXpuaWstYW5kLXBoaWxsaXAtcGhpbGxpcHMjLyI+UmVnaXN0ZXIgb25saW5lIGFuZCBsaXN0ZW4gdG8gMTA3LjkgVGhlIExpbms8L2E+IHRvIHdpbiBwYXNzZXMgdG8gbWVldCB0aGUgYXJ0aXN0cyBhbmQgYXR0ZW5kIHRoaXMgcHJpdmF0ZSBzaG93ITwvcD4NCocBPHA+PGEgaHJlZj0iaHR0cDovL3d3dy4xMDc5dGhlbGluay5jb20vY29udGVzdC93aW4tbGluay1hY291c3RpYy1zZXJpZXMtam9obm55LXJ6ZXpuaWstYW5kLXBoaWxsaXAtcGhpbGxpcHMjLyI+TW9yZSBJbmZvcm1hdGlvbjwvYT48L3A+AABkAgQPZBYCZg9kFgJmDxUMTC9nZXRhdHRhY2htZW50LzNlNGUwODhmLTE1ZWItNDc3NC1hNmNjLWU4NmMxYjRmNjYyZi9XaGl0ZS1Ib3QtTGFib3ItRGF5LUJhc2hML2dldGF0dGFjaG1lbnQvM2U0ZTA4OGYtMTVlYi00Nzc0LWE2Y2MtZTg2YzFiNGY2NjJmL1doaXRlLUhvdC1MYWJvci1EYXktQmFzaCdXaGl0ZSBIb3QgTGFib3IgRGF5IFdlZWtlbmQgU3VuZGF5IEJhc2gnV2hpdGUgSG90IExhYm9yIERheSBXZWVrZW5kIFN1bmRheSBCYXNoBG51bGwDOS8zCDEwOjAwIFBNAOMBPHA+SXQmIzM5O3MgZ29pbmcgdG8gZ2V0IFdISVRFIEhPVCBhdCB0aGUgVGluIFJvb2YgTGFib3IgRGF5IFdlZWtlbmQgU3VuZGF5IEJhc2ggLiBXZWFyIHlvdXIgYmVzdCB3aGl0ZSBvdXRmaXQgd2hpbGUgZW5qb3lpbmcgd2hpcCBjcmVhbSBzaG90cyBhbmQgbGl2ZSBtdXNpYyBieSB0aGUgQXJtb3J5ISBHZXQgcmVhZHkgdG8gY29tZSBlYXJseSBhbmQgc3RheSBsYXRlISBOTyBDT1ZFUiE8L3A+DQpNPHA+PGEgaHJlZj0ifi9jYWxlbmRhci93aGl0ZS1ob3QtbGFib3ItZGF5LWJhc2gtKDIpIj5Nb3JlIEluZm9ybWF0aW9uPC9hPjwvcD4AAGQCBQ9kFgJmD2QWAmYPFQxSL2dldGF0dGFjaG1lbnQvY2Q1MGU4NDUtYTAzMS00ZTZkLWI2MjctZmY3M2NkYjkxNzBkL1dlZWtlbmQtR3Vlc3QtTGlzdC1GcmVlLUNvdmVyIVIvZ2V0YXR0YWNobWVudC9jZDUwZTg0NS1hMDMxLTRlNmQtYjYyNy1mZjczY2RiOTE3MGQvV2Vla2VuZC1HdWVzdC1MaXN0LUZyZWUtQ292ZXIhIFdlZWtlbmQgR3Vlc3QgTGlzdCAtIEZyZWUgQ292ZXIhIFdlZWtlbmQgR3Vlc3QgTGlzdCAtIEZyZWUgQ292ZXIhBGhpZGUFMTIvMjMHODowMCBQTQCPATxwPlNraXAgdGhlIGxpbmUgJmFtcDsgY292ZXIgb24gd2Vla2VuZCBuaWdodHMgYnkgc2lnbmluZyB1cCBmb3Igb3VyIDxhIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZ3Vlc3QtbGlzdCI+R3Vlc3QgTGlzdDwvYT4hPC9wPg0KUDxwPjxhIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZ3Vlc3QtbGlzdCI+TW9yZSBJbmZvcm1hdGlvbjwvYT48L3A+AGc8cCBjbGFzcz0idmlwIj48YSB0YXJnZXQgPSJfYmxhbmsiIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZ3Vlc3QtbGlzdCI+VklQIEFjY2VzczwvYT48L3A+ZAIGD2QWAmYPZBYCZg8VDE0vZ2V0YXR0YWNobWVudC8yOWI0YzczMy1lNDg1LTQxYTYtYTI3Zi1jYThkMjRkMTk0NDcvVHJpdmlhLUthcmFva2UtTmlnaHQtKDEyKU0vZ2V0YXR0YWNobWVudC8yOWI0YzczMy1lNDg1LTQxYTYtYTI3Zi1jYThkMjRkMTk0NDcvVHJpdmlhLUthcmFva2UtTmlnaHQtKDEyKSFUcml2aWEgJiBLYXJhb2tlIFdlZG5lc2RheSBOaWdodHMhVHJpdmlhICYgS2FyYW9rZSBXZWRuZXNkYXkgTmlnaHRzBGhpZGUFMTEvMjkHNzowMCBQTQC/ATxwPlRlYW0gVHJpdmlhIHN0YXJ0cyBhdCA3IFBNIGZvbGxvd2VkIGJ5IEthcmFva2UgYXQgOSBQTS4gJm5ic3A7R2V0IGEgdGVhbSB0b2dldGhlciBhbmQgc2VlIGlmIHlvdSBjYW4gdGFrZSBkb3duIGxhc3Qgd2Vla3MgY2hhbXBzIGFuZCB0aGVuIHRha2UgdGhlIHN0YWdlIGFuZCBiZSB0aGUgc3RhciBvZiB0aGUgbmlnaHQuPC9wPg0KPzxwPjxhIGhyZWY9In4vY2FsZW5kYXIvdHJpdmlhLWthcmFva2UiPk1vcmUgSW5mb3JtYXRpb248L2E+PC9wPgAAZAIHD2QWAmYPZBYCZg8VDEcvZ2V0YXR0YWNobWVudC8wMDJlNWU2NC02ZmUyLTQ3YzYtOTEzMS1mZjBmNDM0MzVjNzcvR2V0LVNvbWUtQ29vbC1Td2FnIUcvZ2V0YXR0YWNobWVudC8wMDJlNWU2NC02ZmUyLTQ3YzYtOTEzMS1mZjBmNDM0MzVjNzcvR2V0LVNvbWUtQ29vbC1Td2FnIRNHZXQgU29tZSBDb29sIFN3YWchE0dldCBTb21lIENvb2wgU3dhZyEEaGlkZQUxMS8zMAc4OjAwIFBNAEk8cD5UaW1lIHRvIHVwZGF0ZSB0aGF0IHdhcmRyb2JlIHdpdGggc29tZSBzd2FnIGZyb20gdGhlIFJvb2YhJm5ic3A7PC9wPg0KPjxwPjxhIGhyZWY9Imh0dHA6Ly90aW5yb29mbWVyY2guY29tLyI+TW9yZSBJbmZvcm1hdGlvbjwvYT48L3A+AABkAgIPZBYCAgIPFhQfAwUNTm8gZGF0YSBmb3VuZB8EZR8FaB8GZR8HaB8IZR8JaB8KAhMfCwUlQ01TLkV2ZW50LnRoZW9yaWdpbmFsdGlucm9vZi1jYWxlbmRhch8MZxYmZg9kFgJmD2QWAmYPFQsJV2VkbmVzZGF5BDgvMTYHNzowMCBQTTQvZ2V0YXR0YWNobWVudC9lZTZjYzk4MS01OTUzLTQ4OTEtOTI5Ny0zZmYyMzAyNGRjNmUvC1RlYW0gVHJpdmlhC1RlYW0gVHJpdmlhxQE8cD5UZWFtIFRyaXZpYSBzdGFydHMgYXQgNyBQTSBmb2xsb3dlZCBieSBLYXJhb2tlIGF0IDkgUE0uICZuYnNwO0dldCBhIHRlYW0gdG9nZXRoZXIgYW5kIHNlZSBpZiB5b3UgY2FuIHRha2UgZG93biBsYXN0IHdlZWtzIGNoYW1wcyBhbmQgdGhlbiB0YWtlIHRoZSBzdGFnZSBhbmQgYmUgdGhlIHN0YXIgb2YgdGhlIG5pZ2h0LiZuYnNwOzwvcD4NCjg8YSBocmVmPSJ+L2NhbGVuZGFyL3RyaXZpYS1rYXJhb2tlIj5Nb3JlIEluZm9ybWF0aW9uPC9hPgAAAGQCAQ9kFgJmD2QWAmYPFQsJV2VkbmVzZGF5BDgvMTYHOTowMCBQTTQvZ2V0YXR0YWNobWVudC84NjljOGFhMi00YjUzLTQ4ZWMtOTQ1Mi04NGYwOGE4ODUyOTcvB0thcmFva2UHS2FyYW9rZTQ8cD5CZSBhIGxvY2FsIHN1cGVyc3RhciB3aXRoIFRpbiBSb29mIEthcmFva2UhPC9wPg0KODxhIGhyZWY9In4vY2FsZW5kYXIvdHJpdmlhLWthcmFva2UiPk1vcmUgSW5mb3JtYXRpb248L2E+AAAAZAICD2QWAmYPZBYCZg8VCwhUaHVyc2RheQQ4LzE3Bzk6MDAgUE00L2dldGF0dGFjaG1lbnQvNjU2ZjVkNzYtMWJlMC00YmUxLWFmMjktY2JmZjhmYTYxOTZjLxBQbHV0byBmb3IgUGxhbmV0EFBsdXRvIGZvciBQbGFuZXQyPHA+Um9jayBuJiMzOTsgUm9sbCBhcyBpdCBvdWdodCB0byBiZSEmbmJzcDs8L3A+DQoAAAAAZAIDD2QWAmYPZBYCZg8VCwZGcmlkYXkEOC8xOAc4OjAwIFBNNC9nZXRhdHRhY2htZW50L2U4Yzc5N2JkLWJhN2MtNDg2MC1iMzAwLWY4OTlhYWY0NTgzMC8gV2Vla2VuZCBHdWVzdCBMaXN0IC0gRnJlZSBDb3ZlciEgV2Vla2VuZCBHdWVzdCBMaXN0IC0gRnJlZSBDb3ZlciGPATxwPlNraXAgdGhlIGxpbmUgJmFtcDsgY292ZXIgb24gd2Vla2VuZCBuaWdodHMgYnkgc2lnbmluZyB1cCBmb3Igb3VyIDxhIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZ3Vlc3QtbGlzdCI+R3Vlc3QgTGlzdDwvYT4hPC9wPg0KSTxhIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZ3Vlc3QtbGlzdCI+TW9yZSBJbmZvcm1hdGlvbjwvYT4AAGc8cCBjbGFzcz0idmlwIj48YSB0YXJnZXQgPSJfYmxhbmsiIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZ3Vlc3QtbGlzdCI+VklQIEFjY2VzczwvYT48L3A+ZAIED2QWAmYPZBYCZg8VCwZGcmlkYXkEOC8xOAgxMDowMCBQTTQvZ2V0YXR0YWNobWVudC82MjEyZDM1NS1lMWM2LTQ3YTktOWY4Ni1iOWJhZGY4NDI4ZDQvDktyaXMgSGl0Y2hjb2NrDktyaXMgSGl0Y2hjb2NrfTxwPktyaXMgSGl0Y2hjb2NrIHdpbGwgYmUgcm9ja2luZyB0aGUgUm9vZiEgSW52aXRlIHlvdXIgZnJpZW5kcyBhbmQgZ2V0IHJlYWR5IGZvciBhIG5pZ2h0IG9mIGRhbmNpbmcgYW5kIHNpbmdpbmcuJm5ic3A7PC9wPg0KPDxhIGhyZWY9In4vY2FsZW5kYXIva3Jpcy1oaXRjaGNvY2stKDEpIj5Nb3JlIEluZm9ybWF0aW9uPC9hPgAAAGQCBQ9kFgJmD2QWAmYPFQsIU2F0dXJkYXkEOC8xOQc4OjAwIFBNNC9nZXRhdHRhY2htZW50LzBhOTliNmNlLTQ4MTMtNGI1Ny04ODFlLTQ1ZjM3OWFlMWE5Ny8gV2Vla2VuZCBHdWVzdCBMaXN0IC0gRnJlZSBDb3ZlciEgV2Vla2VuZCBHdWVzdCBMaXN0IC0gRnJlZSBDb3ZlciGPATxwPlNraXAgdGhlIGxpbmUgJmFtcDsgY292ZXIgb24gd2Vla2VuZCBuaWdodHMgYnkgc2lnbmluZyB1cCBmb3Igb3VyIDxhIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZ3Vlc3QtbGlzdCI+R3Vlc3QgTGlzdDwvYT4hPC9wPg0KSTxhIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZ3Vlc3QtbGlzdCI+TW9yZSBJbmZvcm1hdGlvbjwvYT4AAGc8cCBjbGFzcz0idmlwIj48YSB0YXJnZXQgPSJfYmxhbmsiIGhyZWY9Imh0dHA6Ly93d3cudGlucm9vZmNoYXJsb3R0ZS5jb20vZ3Vlc3QtbGlzdCI+VklQIEFjY2VzczwvYT48L3A+ZAIGD2QWAmYPZBYCZg8VCwhTYXR1cmRheQQ4LzE5CDEwOjAwIFBNNC9nZXRhdHRhY2htZW50LzFiYjkzMGFhLTI3Y2UtNDk2Ny1hYzA3LTY4MWZlMTEyNmFkYS8KSmF5IFRheWxvcgpKYXkgVGF5bG9yOjxwPkpheSBUYXlsb3IgbGl2ZSBhdCB0aGUgUm9vZiBTYXR1cmRheSA4LzE5IEAgMTBwbSE8L3A+DQo8PGEgaHJlZj0ifi9jYWxlbmRhci9rcmlzLWhpdGNoY29jay0oMikiPk1vcmUgSW5mb3JtYXRpb248L2E+AAAAZAIHD2QWAmYPZBYCZg8VCwdUdWVzZGF5BDgvMjIHOTowMCBQTTQvZ2V0YXR0YWNobWVudC81ODQ1MDJjNi0wMWIxLTRhYmQtOThmYi1iOTg4ZDk4MTQ2OGYvEFBsdXRvIGZvciBQbGFuZXQQUGx1dG8gZm9yIFBsYW5ldCw8cD5Sb2NrIG4mIzM5OyBSb2xsIGFzIGl0IG91Z2h0IHRvIGJlITwvcD4NCgAAAABkAggPZBYCZg9kFgJmDxULCVdlZG5lc2RheQQ4LzIzBzc6MDAgUE00L2dldGF0dGFjaG1lbnQvNTA1OWNmY2MtY2RlNy00ZjA0LWE2YzMtYjVmY2EyNDFhZGI5LwtUZWFtIFRyaXZpYQtUZWFtIFRyaXZpYcEBPHA+VGVhbSBUcml2aWEgc3RhcnRzIGF0IDdwbSB0aGUgS2FyYW9rZSBhdCA5cG0uICZuYnNwO1NvIGdldCBhIHRlYW0gdG9nZXRoZXIgYW5kIHNlZSBpZiB5b3UgY2FuIHRha2UgZG93biBsYXN0IHdlZWtzIGNoYW1wcy4gJm5ic3A7VGhlbiB0YWtlIHRoZSBzdGFnZSBhbmQgYmUgdGhlIHN0YXIgb2YgdGhlIG5pZ2h0LiZuYnNwOzwvcD4NCjg8YSBocmVmPSJ+L2NhbGVuZGFyL3RyaXZpYS1rYXJhb2tlIj5Nb3JlIEluZm9ybWF0aW9uPC9hPgAAAGQCCQ9kFgJmD2QWAmYPFQsJV2VkbmVzZGF5BDgvMjMHOTowMCBQTTQvZ2V0YXR0YWNobWVudC80Yjc5ZTA1Yy0zNjgxLTQ5MDYtOTJlMi0xNDg3Yjk0Nzc0NTMvB0thcmFva2UHS2FyYW9rZeABPHA+PHNwYW4gc3R5bGU9ImNvbG9yOiByZ2IoNTEsIDUxLCA1MSk7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmLCBBcmlhbCwgVmVyZGFuYSwgJnF1b3Q7VHJlYnVjaGV0IE1TJnF1b3Q7OyBmb250LXNpemU6IDEzcHg7IGJhY2tncm91bmQtY29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KTsiPkNvbWUgYmUgYSBsb2NhbCBTdXBlcnN0YXIgd2l0aCBUaW4gUm9vZiBLYXJhb2tlITwvc3Bhbj48L3A+DQo4PGEgaHJlZj0ifi9jYWxlbmRhci90cml2aWEta2FyYW9rZSI+TW9yZSBJbmZvcm1hdGlvbjwvYT4AAABkAgoPZBYCZg9kFgJmDxULCFRodXJzZGF5BDgvMjQHNTowMCBQTTQvZ2V0YXR0YWNobWVudC84Y2ZlMmRjMC1iNzc2LTQ1YzgtODNiNC0yNjViOTdlMTE3YjQvDlZpdmEgTGFzIFZlZ2FzDlZpdmEgTGFzIFZlZ2FztgE8cD5QbGF5IGFsbCB5b3VyIGZhdm9yaXRlIGNhc2lubyBnYW1lcyBmcm9tIDUtOSBQTSB3aXRoIHByb2NlZWRzIGJlbmVmaXR0aW5nIDxhIGhyZWY9Imh0dHA6Ly93d3cucHJvamVjdHByZXZlbnRpb24ub3JnLyI+UHJvamVjdCBQcmV2ZW50aW9uPC9hPiEgTGl2ZSBtdXNpYyBieSBCYWxkIEJyb3RoZXJob29kLjwvcD4NCjY8YSBocmVmPSJ+L2NhbGVuZGFyL2Nhc2luby1uaWdodCI+TW9yZSBJbmZvcm1hdGlvbjwvYT4AAABkAgsPZBYCZg9kFgJmDxULCFRodXJzZGF5BDgvMjQHOTowMCBQTTQvZ2V0YXR0YWNobWVudC84ODlmNDM4Ni1mOTBkLTRiYzMtODM4MS03MDYwNjBhZGIzYTMvDUplcnJ5IEphY29icyANSmVycnkgSmFjb2JzIPYDPHA+PHNwYW4gc3R5bGU9ImNvbG9yOiByZ2IoODQsIDg0LCA4NCk7IGZvbnQtZmFtaWx5OiBhcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOiBzbWFsbDsgbGluZS1oZWlnaHQ6IDE4cHg7Ij5IYWlsaW5nIGZyb20gdGhlIGNvYXN0IG9mIHRoZSBDYXJvbGluYXMsJm5ic3A7PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgY29sb3I6IHJnYigxMDYsIDEwNiwgMTA2KTsgZm9udC1mYW1pbHk6IGFyaWFsLCBzYW5zLXNlcmlmOyBsaW5lLWhlaWdodDogMThweDsiPkplcnJ5IEphY29iczwvc3Bhbj48c3BhbiBzdHlsZT0iY29sb3I6IHJnYig4NCwgODQsIDg0KTsgZm9udC1mYW1pbHk6IGFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6IHNtYWxsOyBsaW5lLWhlaWdodDogMThweDsiPiZuYnNwO2lzIG9uZSBvZiBOYXNodmlsbGUmIzM5O3MgdXAtYW5kLWNvbWluZyBzaW5nZXItc29uZ3dyaXRlcnMgYW5kIGVudGVydGFpbmVycy4gJm5ic3A7PC9zcGFuPjwvcD4NCjw8YSBocmVmPSJ+L2NhbGVuZGFyL2tyaXMtaGl0Y2hjb2NrLSgzKSI+TW9yZSBJbmZvcm1hdGlvbjwvYT4AAABkAgwPZBYCZg9kFgJmDxULBkZyaWRheQQ4LzI1Bzg6MDAgUE00L2dldGF0dGFjaG1lbnQvOGU0N2E1ZjMtZjI2Ny00M2JlLWFiYTktYjRkNTQ0MTdlMmVlLyBXZWVrZW5kIEd1ZXN0IExpc3QgLSBGcmVlIENvdmVyISBXZWVrZW5kIEd1ZXN0IExpc3QgLSBGcmVlIENvdmVyIY8BPHA+U2tpcCB0aGUgbGluZSAmYW1wOyBjb3ZlciBvbiB3ZWVrZW5kIG5pZ2h0cyBieSBzaWduaW5nIHVwIGZvciBvdXIgPGEgaHJlZj0iaHR0cDovL3d3dy50aW5yb29mY2hhcmxvdHRlLmNvbS9ndWVzdC1saXN0Ij5HdWVzdCBMaXN0PC9hPiE8L3A+DQpJPGEgaHJlZj0iaHR0cDovL3d3dy50aW5yb29mY2hhcmxvdHRlLmNvbS9ndWVzdC1saXN0Ij5Nb3JlIEluZm9ybWF0aW9uPC9hPgAAZzxwIGNsYXNzPSJ2aXAiPjxhIHRhcmdldCA9Il9ibGFuayIgaHJlZj0iaHR0cDovL3d3dy50aW5yb29mY2hhcmxvdHRlLmNvbS9ndWVzdC1saXN0Ij5WSVAgQWNjZXNzPC9hPjwvcD5kAg0PZBYCZg9kFgJmDxULBkZyaWRheQQ4LzI1CDEwOjAwIFBNNC9nZXRhdHRhY2htZW50L2ZjMjc5YzRmLWZhZWEtNDE2Ny1iZDdiLTAxMjM2YzRhNTE4ZS8NSmVycnkgSmFjb2JzIA1KZXJyeSBKYWNvYnMg9gM8cD48c3BhbiBzdHlsZT0iY29sb3I6IHJnYig4NCwgODQsIDg0KTsgZm9udC1mYW1pbHk6IGFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6IHNtYWxsOyBsaW5lLWhlaWdodDogMThweDsiPkhhaWxpbmcgZnJvbSB0aGUgY29hc3Qgb2YgdGhlIENhcm9saW5hcywmbmJzcDs8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtd2VpZ2h0OiBib2xkOyBjb2xvcjogcmdiKDEwNiwgMTA2LCAxMDYpOyBmb250LWZhbWlseTogYXJpYWwsIHNhbnMtc2VyaWY7IGxpbmUtaGVpZ2h0OiAxOHB4OyI+SmVycnkgSmFjb2JzPC9zcGFuPjxzcGFuIHN0eWxlPSJjb2xvcjogcmdiKDg0LCA4NCwgODQpOyBmb250LWZhbWlseTogYXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogc21hbGw7IGxpbmUtaGVpZ2h0OiAxOHB4OyI+Jm5ic3A7aXMgb25lIG9mIE5hc2h2aWxsZSYjMzk7cyB1cC1hbmQtY29taW5nIHNpbmdlci1zb25nd3JpdGVycyBhbmQgZW50ZXJ0YWluZXJzLiAmbmJzcDs8L3NwYW4+PC9wPg0KAAAAAGQCDg9kFgJmD2QWAmYPFQsIU2F0dXJkYXkEOC8yNgc4OjAwIFBNNC9nZXRhdHRhY2htZW50LzhlOGRlNmQ5LTMxMmEtNDY4NS1hMDc0LTI0ZjFhNzY0YzlkYy8jTWF5d2VhdGhlciB2cy4gTWNHcmVnb3IgV2F0Y2ggUGFydHkjTWF5d2VhdGhlciB2cy4gTWNHcmVnb3IgV2F0Y2ggUGFydHmaAzxwPkVuam95IHRoZSBNYXl3ZWF0aGVyIHZzLiBNY0dyZWdvciBmaWdodCBhdCB0aGUgUm9vZiEgUHVyY2hhc2UgdGlja2V0cyBub3cgZm9yIHJlc2VydmVkIHNlYXRpbmcgb3IgZ2VuZXJhbCBhZG1pc3Npb24uIFVuZGVyY2FyZCBmaWdodHMgc3RhcnQgYXQgOSBidXQgY29tZSBlYXJseSB0byBzZWN1cmUgeW91ciBzcGFjZSBhbmQgZ3JhYiBzb21lIGZvb2QgJmFtcDsgZHJpbmtzLjwvcD4NCg0KPHA+RW50cnkgaW5jbHVkZXMgYWRtaXNzaW9uIHRvIHRoZSBwb3N0IGZpZ2h0IHBhcnR5LiBESiBzZXQgdG8gY29tZW5jZSBpbW1lZGlhdGVseSBhZnRlciB0aGUgZmlnaHQhJm5ic3A7PC9wPg0KDQo8cD5WSVAgVGFibGVzOiAkMTIwLSQxODA8L3A+DQoNCjxwPkdBOiAkMjUgaW4gYWR2YW5jZS8gJDMwIGF0IGRvb3IhPC9wPg0KVzxhIGhyZWY9Imh0dHA6Ly90cmNoYXJsb3R0ZS50dW5lc3R1Yi5jb20vZXZlbnQuY2ZtP2NhcnQmaWQ9MjY3MDczIj5Nb3JlIEluZm9ybWF0aW9uPC9hPgB3PHAgY2xhc3M9ImJ1eSI+PGEgdGFyZ2V0ID0iX2JsYW5rIiBocmVmPSIgaHR0cDovL3RyY2hhcmxvdHRlLnR1bmVzdHViLmNvbS9ldmVudC5jZm0/Y2FydCZpZD0yNjcwNzMiPkJ1eSBUaWNrZXRzPC9hPjwvcD4AZAIPD2QWAmYPZBYCZg8VCwhTYXR1cmRheQQ4LzI2CDExOjMwIFBNNC9nZXRhdHRhY2htZW50LzNlMWQ2N2I5LWE0YjctNGVmYS04NmQyLTc0ZTU5MWJlYjNhNS8bREogSmFtYXlhbiBQb3N0IEZpZ2h0IFBhcnR5G0RKIEphbWF5YW4gUG9zdCBGaWdodCBQYXJ0eQAAAAAAZAIQD2QWAmYPZBYCZg8VCwZTdW5kYXkEOC8yNwgxMjowMCBQTTQvZ2V0YXR0YWNobWVudC8xODNjYjk0NS1hMTgwLTQwZjktOTY4My01NWQxYjE4MTZjMTkvXUxpbmsgTGlzdGVuZXIgUHJpdmF0ZSBBY291c3RpYyBTZXJpZXM6IEpvaG5ueSBSemV6bmlrIG9mIHRoZSBHb28gR29vIERvbGxzICYgUGhpbGxpcCBQaGlsbGlwc11MaW5rIExpc3RlbmVyIFByaXZhdGUgQWNvdXN0aWMgU2VyaWVzOiBKb2hubnkgUnplem5payBvZiB0aGUgR29vIEdvbyBEb2xscyAmIFBoaWxsaXAgUGhpbGxpcHPNAjxwPkxpbmsgQWNvdXN0aWMgU2VyaWVzIGF0IHRoZSBUaW4gUm9vZiBwcmVzZW50cyBKb2hubnkgUnplem5payBvZiB0aGUgR29vIEdvbyBEb2xscyBhbmQgUGhpbGxpcCBQaGlsbGlwcyEgPGEgaHJlZj0iaHR0cDovL3d3dy4xMDc5dGhlbGluay5jb20vY29udGVzdC93aW4tbGluay1hY291c3RpYy1zZXJpZXMtam9obm55LXJ6ZXpuaWstYW5kLXBoaWxsaXAtcGhpbGxpcHMjLyI+UmVnaXN0ZXIgb25saW5lIGFuZCBsaXN0ZW4gdG8gMTA3LjkgVGhlIExpbms8L2E+IHRvIHdpbiBwYXNzZXMgdG8gbWVldCB0aGUgYXJ0aXN0cyBhbmQgYXR0ZW5kIHRoaXMgcHJpdmF0ZSBzaG93ITwvcD4NCoABPGEgaHJlZj0iaHR0cDovL3d3dy4xMDc5dGhlbGluay5jb20vY29udGVzdC93aW4tbGluay1hY291c3RpYy1zZXJpZXMtam9obm55LXJ6ZXpuaWstYW5kLXBoaWxsaXAtcGhpbGxpcHMjLyI+TW9yZSBJbmZvcm1hdGlvbjwvYT4AAABkAhEPZBYCZg9kFgJmDxULCVdlZG5lc2RheQQ4LzMwBzc6MDAgUE00L2dldGF0dGFjaG1lbnQvYzg0ZThjNzQtNDZhNC00YjIwLTk3ZTgtOTUyZmNiNzY3ZDdiLwtUZWFtIFRyaXZpYQtUZWFtIFRyaXZpYcEBPHA+VGVhbSBUcml2aWEgc3RhcnRzIGF0IDdwbSB0aGUgS2FyYW9rZSBhdCA5cG0uICZuYnNwO1NvIGdldCBhIHRlYW0gdG9nZXRoZXIgYW5kIHNlZSBpZiB5b3UgY2FuIHRha2UgZG93biBsYXN0IHdlZWtzIGNoYW1wcy4gJm5ic3A7VGhlbiB0YWtlIHRoZSBzdGFnZSBhbmQgYmUgdGhlIHN0YXIgb2YgdGhlIG5pZ2h0LiZuYnNwOzwvcD4NCjg8YSBocmVmPSJ+L2NhbGVuZGFyL3RyaXZpYS1rYXJhb2tlIj5Nb3JlIEluZm9ybWF0aW9uPC9hPgAAAGQCEg9kFgJmD2QWAmYPFQsJV2VkbmVzZGF5BDgvMzAHOTowMCBQTTQvZ2V0YXR0YWNobWVudC9hY2U3NmNmYi0wYWFhLTQ3MDctOTA5ZS03MWQwNTNhYTQxZjEvB0thcmFva2UHS2FyYW9rZeABPHA+PHNwYW4gc3R5bGU9ImNvbG9yOiByZ2IoNTEsIDUxLCA1MSk7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmLCBBcmlhbCwgVmVyZGFuYSwgJnF1b3Q7VHJlYnVjaGV0IE1TJnF1b3Q7OyBmb250LXNpemU6IDEzcHg7IGJhY2tncm91bmQtY29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KTsiPkNvbWUgYmUgYSBsb2NhbCBTdXBlcnN0YXIgd2l0aCBUaW4gUm9vZiBLYXJhb2tlITwvc3Bhbj48L3A+DQo4PGEgaHJlZj0ifi9jYWxlbmRhci90cml2aWEta2FyYW9rZSI+TW9yZSBJbmZvcm1hdGlvbjwvYT4AAABkAgMPZBYCZg8PFgIeB1Zpc2libGVoZGRktkrHR/lCXz+CZBzudLj6C8SNvp0p6BR+MU1RFu6mZjw=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form'];
+if (!theForm) {
+    theForm = document.form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=PKViXiGDpywrJtL_CCw26nq2fFbBSIFrCJ4wA_bgezi3YGzTglqNHCWA-bwEhChC22JS_TD_jnMkhWKM1KhBA0zgeeHKo32fdlOttdlTEcE1&amp;t=636176090372918880" type="text/javascript"></script>
+
+<input type="hidden" name="lng" id="lng" value="en-US">
+<script src="/CMSPages/GetResource.ashx?scriptfile=%7e%2fCMSScripts%2fWebServiceCall.js" type="text/javascript"></script>
+<script type="text/javascript">
+	//<![CDATA[
+
+function PM_Postback(param) { if (window.top.HideScreenLockWarningAndSync) { window.top.HideScreenLockWarningAndSync(1080); } if(window.CMSContentManager) { CMSContentManager.allowSubmit = true; }; __doPostBack('m$am',param); }
+function PM_Callback(param, callback, ctx) { if (window.top.HideScreenLockWarningAndSync) { window.top.HideScreenLockWarningAndSync(1080); }if (window.CMSContentManager) { CMSContentManager.storeContentChangedStatus(); };WebForm_DoCallback('m$am',param,callback,ctx,null,true); }
+//]]>
+</script>
+<script src="/ScriptResource.axd?d=xyLStNPk9Xy77oV1D4C2dHQt_GH4DteFVuZzSWIW-MzAhhRTeVjBvFK2OFlBl51Z_uVxGOKDuqwyprYrp7g15SjInugauBTdi_pd2-RAXC3PefIiF8C41Reljd381MSj0&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=6xWuVrP0gwpytsyQFEqxx1hiL7_xM1yHJ6EHAGoBnAJndslHtdowEIcLXzVNhL9l3_H5INnuB5CfVSTeTNLLtvbscREdseEDj3fxhmcY8hksFhUH2kyqiSPD2BLLDVCWvTCMW_aM8BhVxtqmwEHf2Q2&amp;t=7c776dc1" type="text/javascript"></script>
+<script type="text/javascript">
+	//<![CDATA[
+
+var CMS = CMS || {};
+CMS.Application = {
+  "isRTL": "false",
+  "applicationUrl": "/",
+  "imagesUrl": "/CMSPages/GetResource.ashx?image=%5bImages.zip%5d%2f",
+  "isDialog": false
+};
+
+//]]>
+</script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A5343185">
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0">
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0">
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('manScript', 'form', ['tctxM',''], [], [], 90, '');
+//]]>
+</script>
+
+    <div id="ctxM">
+
+</div>
+    
+<div id="outer-wrapper"> 
+  <div id="header"> 
+    <div class="site-container">
+      <a href="/">
+        <img src="/App_Themes/theoriginaltinroof/images/logo-charlotte.png" alt="Tin Roof Charlotte" class="logo">
+      </a>
+      
+      <ul class="social">
+        <li><a href="https://twitter.com/TinRoofclt" target="_blank" class="twitter"><span>Twitter</span></a></li>
+        <li><a href="https://www.facebook.com/pages/Tin-Roof-Charlotte/274530742682387" target="_blank" class="facebook"><span>Facebook</span></a></li>
+
+        <li> <a href="https://instagram.com/tinroofclt/" target="_blank" class="instagram"><span>Instagram</span></a> </li>
+      </ul>
+      <a href="#" id="nav-toggle"></a>
+      <nav>
+        
+	<ul id="menuElem">
+		<li>
+			<a href="/">Home</a>
+		</li>
+		<li class="Highlighted">
+			<a href="/calendar">Calendar</a>
+		</li>
+		<li>
+			<a href="/food-drink">Food &amp; Drink</a>
+		</li>
+		<li>
+			<a href="/group-parties-events">Group Parties &amp; Events</a>
+		</li>
+		<li>
+			<a href="/about">About</a>
+		</li>
+		<li>
+			<a onclick="window.open('http://tinroofmerch.com', 'newWindow'); return false" href="/merch">Merch</a>
+		</li>
+
+	</ul>
+
+
+
+      </nav>
+    </div>     
+  </div>
+  
+  
+
+<div id="main" class="eventcalendar">
+  <div class="site-container">
+    <h1>Calendar
+
+
+
+</h1><div class="flexslider carousel featured">
+  
+<div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1600%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+
+<li style=""> 
+  <span class="pic" style="background: url(/getattachment/b51eeb7f-4ecd-4088-b0c8-eb68f6d6e810/Lunch-Dinner-at-the-Roof!) center center no-repeat; background-size:cover;">
+  <img src="/getattachment/b51eeb7f-4ecd-4088-b0c8-eb68f6d6e810/Lunch-Dinner-at-the-Roof!" alt="Our Chefs Rock!" draggable="false">
+  </span>
+  
+  <h3>Our Chefs Rock!</h3>
+  
+  <p class="hide">
+    11/30 at
+    10:00 PM
+  </p>
+ <div class="event-info"><p>Our Chefs in the kitchen are just as amazing as the musicans on our stage! Open daily for lunch &amp; dinner!</p>
+</div>
+  <p><a href="http://www.tinroofcharlotte.com/documents/tr-menu-plus.pdf">More Information</a></p>
+  
+  
+ 
+</li> <li> 
+  <span class="pic" style="background: url(/getattachment/8e8de6d9-312a-4685-a074-24f1a764c9dc/Mayweather-vs-Mcgregor-Fight-Party) center center no-repeat; background-size:cover;">
+  <img src="/getattachment/8e8de6d9-312a-4685-a074-24f1a764c9dc/Mayweather-vs-Mcgregor-Fight-Party" alt="Mayweather vs. McGregor Watch Party" draggable="false">
+  </span>
+  
+  <h3>Mayweather vs. McGregor Watch Party</h3>
+  
+  <p class="null">
+    8/26 at
+    8:00 PM
+  </p>
+ <div class="event-info"><p>Enjoy the Mayweather vs. McGregor fight at the Roof! Purchase tickets now for reserved seating or general admission. Undercard fights start at 9 but come early to secure your space and grab some food &amp; drinks.</p>
+
+<p>Entry includes admission to the post fight party. DJ set to comence immediately after the fight!&nbsp;</p>
+
+<p>VIP Tables: $120-$180</p>
+
+<p>GA: $25 in advance/ $30 at door!</p>
+</div>
+  <p><a href="http://trcharlotte.tunestub.com/event.cfm?cart&amp;id=267073">More Information</a></p>
+  <p class="buy"><a target="_blank" href=" http://trcharlotte.tunestub.com/event.cfm?cart&amp;id=267073">Buy Tickets</a></p>
+  
+ 
+</li> <li> 
+  <span class="pic" style="background: url(/getattachment/8cfe2dc0-b776-45c8-83b4-265b97e117b4/Viva-Las-Vegas) center center no-repeat; background-size:cover;">
+  <img src="/getattachment/8cfe2dc0-b776-45c8-83b4-265b97e117b4/Viva-Las-Vegas" alt="Viva Las Vegas" draggable="false">
+  </span>
+  
+  <h3>Viva Las Vegas</h3>
+  
+  <p class="null">
+    8/24 at
+    5:00 PM
+  </p>
+ <div class="event-info"><p>Play all your favorite casino games from 5-9 PM with proceeds benefitting <a href="http://www.projectprevention.org/">Project Prevention</a>! Live music by Bald Brotherhood.</p>
+</div>
+  <p><a href="/calendar/casino-night">More Information</a></p>
+  
+  
+ 
+</li> <li> 
+  <span class="pic" style="background: url(/getattachment/183cb945-a180-40f9-9683-55d1b1816c19/Link-Listener-Private-Acoustic-Series-All-America) center center no-repeat; background-size:cover;">
+  <img src="/getattachment/183cb945-a180-40f9-9683-55d1b1816c19/Link-Listener-Private-Acoustic-Series-All-America" alt="Link Listener Private Acoustic Series: Johnny Rzeznik of the Goo Goo Dolls &amp; Phillip Phillips" draggable="false">
+  </span>
+  
+  <h3>Link Listener Private Acoustic Series: Johnny Rzeznik of the Goo Goo Dolls &amp; Phillip Phillips</h3>
+  
+  <p class="null">
+    8/27 at
+    12:00 PM
+  </p>
+ <div class="event-info"><p>Link Acoustic Series at the Tin Roof presents Johnny Rzeznik of the Goo Goo Dolls and Phillip Phillips! <a href="http://www.1079thelink.com/contest/win-link-acoustic-series-johnny-rzeznik-and-phillip-phillips#/">Register online and listen to 107.9 The Link</a> to win passes to meet the artists and attend this private show!</p>
+</div>
+  <p><a href="http://www.1079thelink.com/contest/win-link-acoustic-series-johnny-rzeznik-and-phillip-phillips#/">More Information</a></p>
+  
+  
+ 
+</li> <li> 
+  <span class="pic" style="background: url(/getattachment/3e4e088f-15eb-4774-a6cc-e86c1b4f662f/White-Hot-Labor-Day-Bash) center center no-repeat; background-size:cover;">
+  <img src="/getattachment/3e4e088f-15eb-4774-a6cc-e86c1b4f662f/White-Hot-Labor-Day-Bash" alt="White Hot Labor Day Weekend Sunday Bash" draggable="false">
+  </span>
+  
+  <h3>White Hot Labor Day Weekend Sunday Bash</h3>
+  
+  <p class="null">
+    9/3 at
+    10:00 PM
+  </p>
+ <div class="event-info"><p>It's going to get WHITE HOT at the Tin Roof Labor Day Weekend Sunday Bash . Wear your best white outfit while enjoying whip cream shots and live music by the Armory! Get ready to come early and stay late! NO COVER!</p>
+</div>
+  <p><a href="/calendar/white-hot-labor-day-bash-(2)">More Information</a></p>
+  
+  
+ 
+</li> <li> 
+  <span class="pic" style="background: url(/getattachment/cd50e845-a031-4e6d-b627-ff73cdb9170d/Weekend-Guest-List-Free-Cover!) center center no-repeat; background-size:cover;">
+  <img src="/getattachment/cd50e845-a031-4e6d-b627-ff73cdb9170d/Weekend-Guest-List-Free-Cover!" alt="Weekend Guest List - Free Cover!" draggable="false">
+  </span>
+  
+  <h3>Weekend Guest List - Free Cover!</h3>
+  
+  <p class="hide">
+    12/23 at
+    8:00 PM
+  </p>
+ <div class="event-info"><p>Skip the line &amp; cover on weekend nights by signing up for our <a href="http://www.tinroofcharlotte.com/guest-list">Guest List</a>!</p>
+</div>
+  <p><a href="http://www.tinroofcharlotte.com/guest-list">More Information</a></p>
+  
+  <p class="vip"><a target="_blank" href="http://www.tinroofcharlotte.com/guest-list">VIP Access</a></p>
+ 
+</li> <li> 
+  <span class="pic" style="background: url(/getattachment/29b4c733-e485-41a6-a27f-ca8d24d19447/Trivia-Karaoke-Night-(12)) center center no-repeat; background-size:cover;">
+  <img src="/getattachment/29b4c733-e485-41a6-a27f-ca8d24d19447/Trivia-Karaoke-Night-(12)" alt="Trivia &amp; Karaoke Wednesday Nights" draggable="false">
+  </span>
+  
+  <h3>Trivia &amp; Karaoke Wednesday Nights</h3>
+  
+  <p class="hide">
+    11/29 at
+    7:00 PM
+  </p>
+ <div class="event-info"><p>Team Trivia starts at 7 PM followed by Karaoke at 9 PM. &nbsp;Get a team together and see if you can take down last weeks champs and then take the stage and be the star of the night.</p>
+</div>
+  <p><a href="/calendar/trivia-karaoke">More Information</a></p>
+  
+  
+ 
+</li> <li> 
+  <span class="pic" style="background: url(/getattachment/002e5e64-6fe2-47c6-9131-ff0f43435c77/Get-Some-Cool-Swag!) center center no-repeat; background-size:cover;">
+  <img src="/getattachment/002e5e64-6fe2-47c6-9131-ff0f43435c77/Get-Some-Cool-Swag!" alt="Get Some Cool Swag!" draggable="false">
+  </span>
+  
+  <h3>Get Some Cool Swag!</h3>
+  
+  <p class="hide">
+    11/30 at
+    8:00 PM
+  </p>
+ <div class="event-info"><p>Time to update that wardrobe with some swag from the Roof!&nbsp;</p>
+</div>
+  <p><a href="http://tinroofmerch.com/">More Information</a></p>
+  
+  
+ 
+</li> 
+</ul></div><ul class="flex-direction-nav"><li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li><li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li></ul></div><table class="events">
+
+<tbody><tr> 
+  <td class="date">
+    <ul>
+      <li>Wednesday</li>
+      <li>8/16</li>
+      <li>7:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/ee6cc981-5953-4891-9297-3ff23024dc6e/" alt="Team Trivia">
+  </td>
+  <td class="name">
+    <h3>Team Trivia</h3>
+    
+    <div class="event-info"><p>Team Trivia starts at 7 PM followed by Karaoke at 9 PM. &nbsp;Get a team together and see if you can take down last weeks champs and then take the stage and be the star of the night.&nbsp;</p>
+</div>
+    <a href="/calendar/trivia-karaoke">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Wednesday</li>
+      <li>8/16</li>
+      <li>9:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/869c8aa2-4b53-48ec-9452-84f08a885297/" alt="Karaoke">
+  </td>
+  <td class="name">
+    <h3>Karaoke</h3>
+    
+    <div class="event-info"><p>Be a local superstar with Tin Roof Karaoke!</p>
+</div>
+    <a href="/calendar/trivia-karaoke">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Thursday</li>
+      <li>8/17</li>
+      <li>9:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/656f5d76-1be0-4be1-af29-cbff8fa6196c/" alt="Pluto for Planet">
+  </td>
+  <td class="name">
+    <h3>Pluto for Planet</h3>
+    
+    <div class="event-info"><p>Rock n' Roll as it ought to be!&nbsp;</p>
+</div>
+    
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Friday</li>
+      <li>8/18</li>
+      <li>8:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/e8c797bd-ba7c-4860-b300-f899aaf45830/" alt="Weekend Guest List - Free Cover!">
+  </td>
+  <td class="name">
+    <h3>Weekend Guest List - Free Cover!</h3>
+    
+    <div class="event-info"><p>Skip the line &amp; cover on weekend nights by signing up for our <a href="http://www.tinroofcharlotte.com/guest-list">Guest List</a>!</p>
+</div>
+    <a href="http://www.tinroofcharlotte.com/guest-list">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    <p class="vip"><a target="_blank" href="http://www.tinroofcharlotte.com/guest-list">VIP Access</a></p>
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Friday</li>
+      <li>8/18</li>
+      <li>10:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/6212d355-e1c6-47a9-9f86-b9badf8428d4/" alt="Kris Hitchcock">
+  </td>
+  <td class="name">
+    <h3>Kris Hitchcock</h3>
+    
+    <div class="event-info"><p>Kris Hitchcock will be rocking the Roof! Invite your friends and get ready for a night of dancing and singing.&nbsp;</p>
+</div>
+    <a href="/calendar/kris-hitchcock-(1)">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Saturday</li>
+      <li>8/19</li>
+      <li>8:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/0a99b6ce-4813-4b57-881e-45f379ae1a97/" alt="Weekend Guest List - Free Cover!">
+  </td>
+  <td class="name">
+    <h3>Weekend Guest List - Free Cover!</h3>
+    
+    <div class="event-info"><p>Skip the line &amp; cover on weekend nights by signing up for our <a href="http://www.tinroofcharlotte.com/guest-list">Guest List</a>!</p>
+</div>
+    <a href="http://www.tinroofcharlotte.com/guest-list">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    <p class="vip"><a target="_blank" href="http://www.tinroofcharlotte.com/guest-list">VIP Access</a></p>
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Saturday</li>
+      <li>8/19</li>
+      <li>10:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/1bb930aa-27ce-4967-ac07-681fe1126ada/" alt="Jay Taylor">
+  </td>
+  <td class="name">
+    <h3>Jay Taylor</h3>
+    
+    <div class="event-info"><p>Jay Taylor live at the Roof Saturday 8/19 @ 10pm!</p>
+</div>
+    <a href="/calendar/kris-hitchcock-(2)">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Tuesday</li>
+      <li>8/22</li>
+      <li>9:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/584502c6-01b1-4abd-98fb-b988d981468f/" alt="Pluto for Planet">
+  </td>
+  <td class="name">
+    <h3>Pluto for Planet</h3>
+    
+    <div class="event-info"><p>Rock n' Roll as it ought to be!</p>
+</div>
+    
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Wednesday</li>
+      <li>8/23</li>
+      <li>7:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/5059cfcc-cde7-4f04-a6c3-b5fca241adb9/" alt="Team Trivia">
+  </td>
+  <td class="name">
+    <h3>Team Trivia</h3>
+    
+    <div class="event-info"><p>Team Trivia starts at 7pm the Karaoke at 9pm. &nbsp;So get a team together and see if you can take down last weeks champs. &nbsp;Then take the stage and be the star of the night.&nbsp;</p>
+</div>
+    <a href="/calendar/trivia-karaoke">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Wednesday</li>
+      <li>8/23</li>
+      <li>9:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/4b79e05c-3681-4906-92e2-1487b9477453/" alt="Karaoke">
+  </td>
+  <td class="name">
+    <h3>Karaoke</h3>
+    
+    <div class="event-info"><p><span style="color: rgb(51, 51, 51); font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;; font-size: 13px; background-color: rgb(255, 255, 255);">Come be a local Superstar with Tin Roof Karaoke!</span></p>
+</div>
+    <a href="/calendar/trivia-karaoke">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Thursday</li>
+      <li>8/24</li>
+      <li>5:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/8cfe2dc0-b776-45c8-83b4-265b97e117b4/" alt="Viva Las Vegas">
+  </td>
+  <td class="name">
+    <h3>Viva Las Vegas</h3>
+    
+    <div class="event-info"><p>Play all your favorite casino games from 5-9 PM with proceeds benefitting <a href="http://www.projectprevention.org/">Project Prevention</a>! Live music by Bald Brotherhood.</p>
+</div>
+    <a href="/calendar/casino-night">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Thursday</li>
+      <li>8/24</li>
+      <li>9:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/889f4386-f90d-4bc3-8381-706060adb3a3/" alt="Jerry Jacobs ">
+  </td>
+  <td class="name">
+    <h3>Jerry Jacobs </h3>
+    
+    <div class="event-info"><p><span style="color: rgb(84, 84, 84); font-family: arial, sans-serif; font-size: small; line-height: 18px;">Hailing from the coast of the Carolinas,&nbsp;</span><span style="font-weight: bold; color: rgb(106, 106, 106); font-family: arial, sans-serif; line-height: 18px;">Jerry Jacobs</span><span style="color: rgb(84, 84, 84); font-family: arial, sans-serif; font-size: small; line-height: 18px;">&nbsp;is one of Nashville's up-and-coming singer-songwriters and entertainers. &nbsp;</span></p>
+</div>
+    <a href="/calendar/kris-hitchcock-(3)">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Friday</li>
+      <li>8/25</li>
+      <li>8:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/8e47a5f3-f267-43be-aba9-b4d54417e2ee/" alt="Weekend Guest List - Free Cover!">
+  </td>
+  <td class="name">
+    <h3>Weekend Guest List - Free Cover!</h3>
+    
+    <div class="event-info"><p>Skip the line &amp; cover on weekend nights by signing up for our <a href="http://www.tinroofcharlotte.com/guest-list">Guest List</a>!</p>
+</div>
+    <a href="http://www.tinroofcharlotte.com/guest-list">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    <p class="vip"><a target="_blank" href="http://www.tinroofcharlotte.com/guest-list">VIP Access</a></p>
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Friday</li>
+      <li>8/25</li>
+      <li>10:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/fc279c4f-faea-4167-bd7b-01236c4a518e/" alt="Jerry Jacobs ">
+  </td>
+  <td class="name">
+    <h3>Jerry Jacobs </h3>
+    
+    <div class="event-info"><p><span style="color: rgb(84, 84, 84); font-family: arial, sans-serif; font-size: small; line-height: 18px;">Hailing from the coast of the Carolinas,&nbsp;</span><span style="font-weight: bold; color: rgb(106, 106, 106); font-family: arial, sans-serif; line-height: 18px;">Jerry Jacobs</span><span style="color: rgb(84, 84, 84); font-family: arial, sans-serif; font-size: small; line-height: 18px;">&nbsp;is one of Nashville's up-and-coming singer-songwriters and entertainers. &nbsp;</span></p>
+</div>
+    
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Saturday</li>
+      <li>8/26</li>
+      <li>8:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/8e8de6d9-312a-4685-a074-24f1a764c9dc/" alt="Mayweather vs. McGregor Watch Party">
+  </td>
+  <td class="name">
+    <h3>Mayweather vs. McGregor Watch Party</h3>
+    
+    <div class="event-info"><p>Enjoy the Mayweather vs. McGregor fight at the Roof! Purchase tickets now for reserved seating or general admission. Undercard fights start at 9 but come early to secure your space and grab some food &amp; drinks.</p>
+
+<p>Entry includes admission to the post fight party. DJ set to comence immediately after the fight!&nbsp;</p>
+
+<p>VIP Tables: $120-$180</p>
+
+<p>GA: $25 in advance/ $30 at door!</p>
+</div>
+    <a href="http://trcharlotte.tunestub.com/event.cfm?cart&amp;id=267073">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    <p class="buy"><a target="_blank" href=" http://trcharlotte.tunestub.com/event.cfm?cart&amp;id=267073">Buy Tickets</a></p>
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Saturday</li>
+      <li>8/26</li>
+      <li>11:30 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/3e1d67b9-a4b7-4efa-86d2-74e591beb3a5/" alt="DJ Jamayan Post Fight Party">
+  </td>
+  <td class="name">
+    <h3>DJ Jamayan Post Fight Party</h3>
+    
+    <div class="event-info"></div>
+    
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Sunday</li>
+      <li>8/27</li>
+      <li>12:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/183cb945-a180-40f9-9683-55d1b1816c19/" alt="Link Listener Private Acoustic Series: Johnny Rzeznik of the Goo Goo Dolls &amp; Phillip Phillips">
+  </td>
+  <td class="name">
+    <h3>Link Listener Private Acoustic Series: Johnny Rzeznik of the Goo Goo Dolls &amp; Phillip Phillips</h3>
+    
+    <div class="event-info"><p>Link Acoustic Series at the Tin Roof presents Johnny Rzeznik of the Goo Goo Dolls and Phillip Phillips! <a href="http://www.1079thelink.com/contest/win-link-acoustic-series-johnny-rzeznik-and-phillip-phillips#/">Register online and listen to 107.9 The Link</a> to win passes to meet the artists and attend this private show!</p>
+</div>
+    <a href="http://www.1079thelink.com/contest/win-link-acoustic-series-johnny-rzeznik-and-phillip-phillips#/">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Wednesday</li>
+      <li>8/30</li>
+      <li>7:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/c84e8c74-46a4-4b20-97e8-952fcb767d7b/" alt="Team Trivia">
+  </td>
+  <td class="name">
+    <h3>Team Trivia</h3>
+    
+    <div class="event-info"><p>Team Trivia starts at 7pm the Karaoke at 9pm. &nbsp;So get a team together and see if you can take down last weeks champs. &nbsp;Then take the stage and be the star of the night.&nbsp;</p>
+</div>
+    <a href="/calendar/trivia-karaoke">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> <tr> 
+  <td class="date">
+    <ul>
+      <li>Wednesday</li>
+      <li>8/30</li>
+      <li>9:00 PM</li>
+    </ul>
+  </td>
+  <td class="photo">
+    <img src="/getattachment/ace76cfb-0aaa-4707-909e-71d053aa41f1/" alt="Karaoke">
+  </td>
+  <td class="name">
+    <h3>Karaoke</h3>
+    
+    <div class="event-info"><p><span style="color: rgb(51, 51, 51); font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;; font-size: 13px; background-color: rgb(255, 255, 255);">Come be a local Superstar with Tin Roof Karaoke!</span></p>
+</div>
+    <a href="/calendar/trivia-karaoke">More Information</a>
+    
+  </td>
+  <td class="price">
+    
+    
+    
+  </td>
+</tr> 
+</tbody></table>
+    <ul class="cal-pager">
+      <li><a id="p_lt_ctl01_pageplaceholder_p_lt_ctl01_Link_Button_Next_btnElem_hyperLink" href="/Calendar?month=9"><span id="p_lt_ctl01_pageplaceholder_p_lt_ctl01_Link_Button_Next_btnElem_lblText">Next Month</span></a>
+</li>
+    </ul>
+  </div>
+</div>
+
+<script defer="" src="/App_Themes/theoriginaltinroof/jquery.flexslider.js"></script>
+<script type="text/javascript">
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+      animation: "slide",
+      controlNav: false,  
+      animationLoop: true,
+      itemWidth: 300,
+      minItems: 2,
+      maxItems: 3,
+      itemMargin: 30,
+      slideshow: false
+    });
+  });
+</script>
+  <div id="footer">
+    <div class="site-container">
+      <div class="col33 contact">
+        <h3>Contact Us</h3>
+        <div itemscope="" itemtype="http://schema.org/BarOrPub">
+          <ul>
+            <li> 
+              <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                <link itemprop="subClassOf" href="http://schema.org/FoodEstablishment">
+                <a href="https://goo.gl/maps/cNVQe" target="_blank"> 
+                  <span itemprop="streetAddress">210 E Trade St, #286</span> <span itemprop="addressLocality">Charlotte</span>, <span itemprop="addressRegion">NC</span> <span itemprop="postalCode">28202</span></a>
+              </div>
+            </li>
+            <li>Hours: <span itemprop="openingHours">11am–2:30am</span>. Phone: <a href="tel:704-910-1330"><span itemprop="telephone">704-910-1330</span></a></li>
+            <li><a href="mailto:infocharlotte@tinroofbars.com">infocharlotte@tinroofbars.com</a></li>
+          </ul>  
+        </div>
+        <ul class="social">
+          <li><a href="https://twitter.com/TinRoofclt" target="_blank" class="twitter"><span>Twitter</span></a></li>
+          <li><a href="https://www.facebook.com/pages/Tin-Roof-Charlotte/274530742682387" target="_blank" class="facebook"><span>Facebook</span></a></li>
+          <li> <a href="https://www.youtube.com/channel/UCt200cC9m0LgozrUiUHtobw/videos" target="_blank" class="youtube"><span>YouTube</span></a> </li>
+          <li> <a href="https://instagram.com/tinroofclt/" target="_blank" class="instagram"><span>Instagram</span></a> </li>
+        </ul>
+      </div>
+      <div class="col15">
+        <img src="/App_Themes/theoriginaltinroof/images/girl.png" alt="A Live Music Joint">
+      </div>
+      <div class="col33 last">
+        <h3>Email list</h3>
+        <iframe height="25" src="/App_Themes/theoriginaltinroof/signup-charlotte.html"></iframe>
+        <p><a href="http://www.tinroofbars.com" target="_blank">View All Our Locations</a></p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<script src="/App_Themes/theoriginaltinroof/mobilenav.js"></script>
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("manScript_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();//]]>
+</script>
+
+<script type="text/javascript">
+	//<![CDATA[
+if (typeof(Sys.Browser.WebKit) == 'undefined') {
+    Sys.Browser.WebKit = {};
+}
+if (navigator.userAgent.indexOf('WebKit/') > -1) {
+    Sys.Browser.agent = Sys.Browser.WebKit;
+    Sys.Browser.version = parseFloat(navigator.userAgent.match(/WebKit\/(\d+(\.\d+)?)/)[1]);
+    Sys.Browser.name = 'WebKit';
+}
+//]]>
+</script>
+<script type="text/javascript">
+	//<![CDATA[
+WebServiceCall('/cmsapi/webanalytics', 'LogHit', '{"NodeAliasPath":"/Calendar","DocumentCultureCode":"en-US","UrlReferrer":""}')
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+WebForm_InitCallback();
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+
+

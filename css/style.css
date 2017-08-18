@@ -15,6 +15,17 @@ nav {
   height: 5vh;
 }
 
+.navlink {
+  font-family: 'Asap', sans-serif;
+  text-shadow: 2px 2px 4px #000000;
+  color: whitesmoke;
+}
+
+.secondnav {
+  padding-left: 40%;
+  font-size: 42px;
+}
+
 .nav-wrapper {
   text-align: center;
 }
@@ -71,6 +82,8 @@ p {
     width: 85vw;
     height: 61vw;
   }
+
+
 }
 
 @media only screen and (max-width : 600px) {
@@ -96,6 +109,8 @@ p {
   }
 
 }
+
+
 
 
 
