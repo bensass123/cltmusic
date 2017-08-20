@@ -36,12 +36,14 @@ var makeFile = (obj) => {
 $('tr').each(function(i, elem) { 
 
     var show = {
-    event: '',
-    date: '',
-    times: '',
-    ticketfly: '',
-    href: '',
-    desc: ''
+        venue: 'The Tin Roof',
+        event: '',
+        date: '',
+        times: '',
+        ticketfly: '',
+        href: '',
+        desc: '',
+        tuneStub: ''
     }
 
     // band/event

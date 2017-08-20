@@ -28,11 +28,14 @@ var makeFile = (obj) => {
 $('div.list-view-details').each(function(i, elem) { 
 
     var show = {
-    event: '',
-    date: '',
-    times: '',
-    ticketfly: '',
-    href: ''
+        venue: 'Evening Muse',
+        event: '',
+        date: '',
+        times: '',
+        ticketfly: '',
+        tuneStub: '',
+        href: '',
+        desc: ''
     }
 
     // band/event

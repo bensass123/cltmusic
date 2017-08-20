@@ -27,11 +27,14 @@ var makeFile = (obj) => {
 $('div.show-info').each(function(i, elem) { 
 
     var show = {
-    event: '',
-    date: '',
-    times: '',
-    tuneStub: '',
-    href: ''
+        venue: 'Snug Harbor',
+        event: '',
+        date: '',
+        times: '',
+        tuneStub: '',
+        href: '',
+        desc: '',
+        ticketfly: ''
     }
 
     // band/event
@@ -41,6 +44,10 @@ $('div.show-info').each(function(i, elem) {
     // date
     console.log(moment($(elem).children('span.all-date').children('span.show-date').text().trim()).format('MM DD YY'));
     show.date = moment($(elem).children('span.all-date').children('span.show-date').text().trim()).format('MM DD YY');
+
+    //desc 
+    console.log($(elem).children('p.show-desc').text());
+    show.desc = $(elem).children('p.show-desc').text();
 
     // // times
     console.log($(elem).children('span.all-date').children('span.show-time').text().trim());

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex">
+  <title>Local Live Music | Charlotte, NC</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../cltmusic/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+
+
+</head>
+
+<style>
+
+.content {
+    
+}
+
+.card {
+    height: 35vh;
+}
+
+
+</style>
+
+
+    <script id="eventTemplate" type="text/x-handlebars-template">
+
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title">{{ event }}</span>
+                
+                <p>{{ desc }}</p>
+            </div>
+            <div class="card-action">
+                <a href= {{ href }} >Details</a>
+            </div>
+        </div>
+
+    </script>
+
+
+            
+
+
+  <body>
+
+    <h2 id='date'></h2><button id='next'>></button>
+
+    <div class="row">
+        <div class="col s9 m9 l10 cardList">
+
+          <div id="snug" class="section scrollspy content"></div>
+    
+          <div id="muse" class="section scrollspy content"></div>
+
+          <div id="tinroof" class="section scrollspy content"></div>
+
+          <div id="milestone" class="section scrollspy content"></div>
+
+        </div>
+    
+
+        <div class="col s3 l2">
+          <ul class="section table-of-contents">
+            <li><a href="#snug">Snug Harbor</a></li>
+            <li><a href="#muse">Evening Muse</a></li>
+            <li><a href="#tinroof">The Tin Roof</a></li>
+            <li><a href="#milestone">The Milestone Club</a></li>
+          </ul>
+        </div>
+    </div>
+    
+
+
+  <!--  Scripts-->
+
+  
+
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="../cltmusic/js/materialize.js"></script>
+
+  <script src="./js/moment.min.js"></script>
+  <script src="./js/handlebars.min.js"></script>
+
+  <script src="./JSON/museDATA.js"></script>
+  <script src="./JSON/snugDATA.js"></script>
+  <script src="./JSON/tinroofDATA.js"></script>
+  <script src="./JSON/milestoneDATA.js"></script>
+
+  <script type='text/javascript'>
+
+        var allEvents = [];
+        var todaysEvents = [];
+        var current;
+
+        var update = () => {
+            $('.cardList').children().empty();
+            todaysEvents = [];
+            $('#date').text(current);
+            for (i in allEvents) {
+                if (allEvents[i].date === current) {
+                    console.log(allEvents[i]);
+                    todaysEvents.push(allEvents[i])
+                    addCard(allEvents[i]);
+                }
+            }
+        }
+
+        var nextDate = () => {
+            current = moment(current).add(1,'days').format('MM DD YY');
+            update();
+            
+        }
+
+
+            
+        
+
+        var fillit = (obj, template, divtofill) => {
+                var source   = $(template).html();
+                var template = Handlebars.compile(source);
+                var html = template(obj);
+                $(divtofill).html(html);
+        }
+
+        var addCard = (obj) => {
+            var venue;
+            switch(obj.venue) {
+                case 'Snug Harbor':
+                    venue = 'snug';
+                    break;
+                case 'The Tin Roof':
+                    venue = 'tinroof';
+                    break;
+                case 'Evening Muse':
+                    venue = 'muse';
+                    break;
+                case 'The Milestone Club':
+                    venue = 'milestone';
+                    break;
+            }
+            //add handlebars where id = venue
+            var source = $('#eventTemplate').html();
+            var template = Handlebars.compile(source);
+            var html = template(obj);
+            $('#' + venue).html(html);
+
+        }       
+    
+        $(document).ready(function(){
+
+            //next date button
+            $('#next').click(()=>{
+                nextDate();
+            });
+
+            //init scrollspy
+            $('.scrollspy').scrollSpy();
+
+            $('.table-of-contents').pushpin({
+                top: 0,
+                offset: 0
+            });
+
+
+            
+
+            //concat all data arrays
+
+            
+            allEvents = allEvents.concat(muse);
+            allEvents = allEvents.concat(snug);
+            allEvents = allEvents.concat(tinroof);
+            allEvents = allEvents.concat(milestone);
+           
+
+            //console.log(allEvents);
+
+            //set current date
+            current = moment().format('MM DD YY');
+            todaysEvents = [];
+
+            // adds cards 
+            update();
+
+            
+
+           
+        });
+
+        
+
+        
+    
+    
+      </script>
+
+  </body>
+</html>
