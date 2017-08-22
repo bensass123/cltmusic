@@ -6,6 +6,21 @@
  * Made By MaterializeCSS.com
  */
 
+ .carousel {
+   min-height: 90vh;
+ }
+
+ .carousel-wrapper {
+  position: relative;
+  bottom: 16vh;
+ }
+
+ .carousel-item {
+   min-height: 45vh;
+   min-width: 40vw;
+   border-radius: 7px;
+ }
+
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -46,6 +61,10 @@ p {
   border-radius: 7px;
 }
 
+.header {
+  text-shadow: 2px 2px 4px #000000;
+}
+
 .title {
 
     text-shadow: 2px 2px 4px #000000;
@@ -57,7 +76,7 @@ p {
 }
 
 .parallax-container {
-  min-height: 380px;
+  min-height: 100vh;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
