@@ -7,17 +7,24 @@
  */
 
  .carousel {
-   min-height: 90vh;
+   min-height: 70vh;
  }
 
  .carousel-wrapper {
   position: relative;
-  bottom: 16vh;
+  bottom: 5vh;
+ }
+
+ .card-bar-logo {
+   height: auto;
+   width: auto;
+   max-height: 15vw;
+   max-width: 25vw;
  }
 
  .carousel-item {
    min-height: 45vh;
-   min-width: 40vw;
+   min-width: 25vw;
    border-radius: 7px;
  }
 
@@ -76,7 +83,7 @@ p {
 }
 
 .parallax-container {
-  min-height: 100vh;
+  min-height: 80vh;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
