@@ -18,7 +18,7 @@
 
 </head>
 <body class="deep-orange">
-   <nav class="deep-orange darken-2" role="navigation">
+   <nav class="deep-orange darken-2 nav-extended" role="navigation">
     <div class="nav-wrapper container">
       <!-- <a id="logo-container" href="#" class="brand-logo"></a>   logo goes here in a tag -->
       
@@ -48,9 +48,11 @@
 
       <a href="https://www.coyote-joes.com/" target="_blank"><img src="img/bars/coyote.png" alt="Coyote Joes" class='navimage'></a>
 
-      <a class="waves-effect waves-light btn" id ='prev'><i class="material-icons left">arrow_back</i>Previous Date</a>
-      <span id='date'></span>
-      <a class="waves-effect waves-light btn" id ='next'><i class="material-icons left">arrow_forward</i>Next Date</a>
+      <div class='date-btn-div deep-orange darken-2'>
+        <a class="waves-effect waves-light btn orange lighten-5 black-text date-btn" id ='prev'><i class="btn-icon material-icons left valign-wrapper">arrow_back</i>Previous Date</a>
+        <span id='date'></span>
+        <a class="waves-effect waves-light btn orange lighten-5 black-text date-btn" id ='next'>Next Date<i class="btn-icon material-icons right valign-wrapper">arrow_forward</i></a>
+      </div>
 
       <!-- <ul id="nav-mobile" class="side-nav">
         <li><a href="#">Navbar Link</a></li>
@@ -65,7 +67,7 @@
         <br><br>
         <h1 class="header center lime-text text-lighten-2 title">CLT Music</h1>
         <div class="row center">
-          <h5 class="header col s12 light">A quick and easy way to find live music right here in the Queen City</h5>
+          <h5 class="header col s12 light"><span id='current-date'>Tonight's</span> Live Music Events</h5>
         </div>
         <div class="row center">
          <div class='carousel-wrapper'> 

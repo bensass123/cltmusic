@@ -6,14 +6,27 @@
  * Made By MaterializeCSS.com
  */
 
+
+
+.btn-icon {
+  position: relative;
+  top: -14px;
+ }
+
  .carousel {
-   min-height: 70vh;
+   /* min-height: 70vh; */
+ }
+
+ .close-icon {
+  position: relative;
+  /* top: -60px; */
  }
 
  .carousel-wrapper {
   position: relative;
   bottom: 5vh;
  }
+
 
  .card-bar-logo {
    height: auto;
@@ -22,10 +35,10 @@
    max-width: 25vw;
  }
 
- .carousel-item {
-   min-height: 45vh;
-   min-width: 25vw;
-   border-radius: 7px;
+ .card {
+  min-height: 45vh;
+  min-width: 25vw;
+  border-radius: 7px;
  }
 
 nav ul a,
@@ -83,7 +96,7 @@ p {
 }
 
 .parallax-container {
-  min-height: 80vh;
+  min-height: 75vh;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
