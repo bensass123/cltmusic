@@ -64,18 +64,21 @@
     }
     console.log('Logo', logo);
 
+    //create container div
+    var $container = $('<div>', {class: 'col s12 m3'});
+
     //create card 
-    var $card = $('<div>', {class: 'hoverable cardDiv carousel-item card blue-grey darken-4'});
+    var $card = $('<div>', {class: 'hoverable card-div deep-purple card'});
     
     // create img and imgDiv
-    var $imgDiv = $('<div>', {class: 'card-image  activator'});
+    var $imgDiv = $('<div>', {class: 'card-image center activator'});
     var $img = $('<img>',{src: logo, class: 'activator card-bar-logo'});
     $imgDiv.append($img);
 
     //create card-content div
-    var $contentDiv = $('<div>', {class: 'card-content  activator'});
+    var $contentDiv = $('<div>', {class: 'card-content activator'});
     //title
-    var $t = $('<span>', {class: 'card-title activator white-text blue-grey darken-4', text: obj.event});
+    var $t = $('<span>', {class: 'card-title activator event-title', text: obj.event});
     var $i = $('<i>', {class:'material-icons right', text: 'expand_more'});
     $t.append($i);
 
@@ -84,13 +87,12 @@
     
     $contentDiv.append($t, $trunc);
    
-    // // card action div for tix link
-    // var $actionDiv = $('<div>', {class: 'card-action activator blue-grey darken-4'}).append('<p><a href="' + obj.href + '">' + 'Event Link' + '</a></p>');
+  
 
     // reveal-div with description
-    var $revealDiv = $('<div>', {class: 'card-reveal activator blue-grey darken-3'});
-    var $t2 = $('<p>', {class: 'card-title reveal-title activator white-text', text: obj.event});
-    var $i2 = $('<i>', {class:"material-icons right activator close-icon orange-text darken-3", text: 'close'});
+    var $revealDiv = $('<div>', {class: 'card-reveal activator'});
+    var $t2 = $('<p>', {class: 'card-title reveal-title activator', text: obj.event});
+    var $i2 = $('<i>', {class:"material-icons right activator close-icon", text: 'close'});
     $t2.append($i2);
     var $p = $('<p>', {class: 'activator card-desc', text: obj.desc});
     $revealDiv.append($t2, $p);
@@ -98,20 +100,25 @@
     // append all divs to card
     $card.append($imgDiv, $contentDiv, $revealDiv);
 
+    //append card to container
+    $container.append($card);
+
     // append card to carousel
-    $('.carousel').append($card);
+    $('.cards').append($container);
   }
 
+// creating/recreating carousel
   var populateCarousel = (arr) => {
     for (var i =0; i<arr.length; i++) {
       createCarouselCard(arr[i]);
     }
-    $('.carousel').carousel({full_width: true});
+    // $('.carousel').carousel({full_width: true, noWrap: true});
   }
 
   var nextDate = () => {
     console.log('next date');
     current = moment(current).add(1,'days').format('MM DD YY');
+    $('.cards').empty();
     populateCarousel(getDaysEvents(current));
     $('#current-date').text(moment(current).format('dddd, MMMM Do'));
   }
@@ -119,6 +126,7 @@
   var prevDate = () => {
     console.log('prev date');
     current = moment(current).subtract(1,'days').format('MM DD YY');
+    $('.cards').empty();
     populateCarousel(getDaysEvents(current));
     $('#current-date').text(moment(current).format('dddd, MMMM Do'));
   }
