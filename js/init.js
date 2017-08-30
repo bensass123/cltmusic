@@ -58,8 +58,9 @@ var createFakes = () => {
 // create test events
 // var testEvents = createFakes();
 
-var createCarouselCard = (obj) => {
+var createCarouselCard = (obj, numcards) => {
   var logo;
+  var venue;
   switch(obj.venue) {
       case 'Snug Harbor':
           logo = 'img/bars/snug.png';
@@ -77,7 +78,7 @@ var createCarouselCard = (obj) => {
           logo = 'img/bars/fillmore.png';
           break;
       case 'The Visulite':
-          logo = 'img/bars/visulite.jpeg';
+          logo = 'img/bars/visuliteClear.png';
           break;
       case 'The Tinroof':
           logo = 'img/bars/tinroof.png';
@@ -92,15 +93,54 @@ var createCarouselCard = (obj) => {
   }
   console.log('Logo', logo);
 
+
   //create container div
-  var $container = $('<div>', {class: 'col s12 m3'});
+  //if numcards 5,6 -> m2
+  // if numcards > 6, m1
+  console.log(numcards, ' <---- numcards');
+  var msize = 'm1';
+  switch (numcards) {
+    case 1:
+      msize = 'm4 offset-m4';
+      break;
+    case 2: 
+      msize = 'm4 offset-m1';
+      break;
+    case 3: 
+      msize = 'm4';
+      break;
+    case 4:
+      msize = 'm3';
+      break;
+    case 5:
+      msize = 'm2';
+      break;
+    case 6:
+      msize = 'm2';
+      break;
+  }
+
+
+  var $container = $('<div>', {class: 'col s12 ' + msize});
 
   //create card 
-  var $card = $('<div>', {class: 'hoverable card-div deep-purple card'});
+  var $card = $('<div>', {class: 'hoverable card-div  card radius indigo lighten-2'});
   
   // create img and imgDiv
-  var $imgDiv = $('<div>', {class: 'card-image center activator'});
-  var $img = $('<img>',{src: logo, class: 'activator card-bar-logo'});
+  
+  // if (false) {
+  //   var $imgDiv = $('<div>', {class: 'card-image center activator white'});
+  //   var $img = $('<img>',{src: logo, class: 'activator card-bar-logo negative', style: 'mix-blend-mode: multiply;'});
+  // } else {
+    var $imgDiv = $('<div>', {class: 'card-image center activator white top-radius'});
+    var $img = $('<img>',{src: logo, class: 'activator card-bar-logo top-radius'});
+  // }
+
+  if (obj.venue==='Snug Harbor' || obj.venue === 'The Tin Roof') {
+    $imgDiv.removeClass('white');
+    $imgDiv.addClass('black');
+  }
+  
   $imgDiv.append($img);
 
   //create card-content div
@@ -123,7 +163,10 @@ var createCarouselCard = (obj) => {
   var $i2 = $('<i>', {class:"material-icons right activator close-icon", text: 'close'});
   $t2.append($i2);
   var $p = $('<p>', {class: 'activator card-desc', text: obj.desc});
-  $revealDiv.append($t2, $p);
+  // <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+  var $tixBtn = $('<a>', {class: 'btn-floating btn-large waves-effect waves-light red tix-btn', text: 'TIX', href: obj.href});
+  
+  $revealDiv.append($t2, $p, $tixBtn);
 
   // append all divs to card
   $card.append($imgDiv, $contentDiv, $revealDiv);
@@ -138,7 +181,7 @@ var createCarouselCard = (obj) => {
 // creating/recreating carousel
 var populateCarousel = (arr) => {
   for (var i =0; i<arr.length; i++) {
-    createCarouselCard(arr[i]);
+    createCarouselCard(arr[i], arr.length);
   }
   // $('.carousel').carousel({full_width: true, noWrap: true});
 }
@@ -177,10 +220,11 @@ $(function(){
   // allEvents = allEvents.concat(tinroof);
   // allEvents = allEvents.concat(milestone);
 
-  populateCarousel(getDaysEvents(current));
+  
   $('.button-collapse').sideNav();
   $('.parallax').parallax();
 
+  populateCarousel(getDaysEvents(current));
   //did this in populateCarousel function instead
   //$('.carousel').carousel({full_width: true});
 

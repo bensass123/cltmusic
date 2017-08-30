@@ -7,16 +7,43 @@
  */
 
 
+/* #0192b1 - old hornets teal
+#293a96 - old hornets purp */
+
+/* #25165e - new hornets purp */
+
+
+
  .card-title {
-  /* text-shadow: 2px 2px 4px #eeff41; */
-  font-size: 2vh !important;
+  text-shadow: 2px 2px 4px black; 
+  font-size: 1.6vh !important;
   line-height: 2.2vh !important;
+  color: whitesmoke !important;
+  font-weight: boldest !important;
+  /* -webkit-text-stroke: .4px black !important; */
+ }
+
+ .tix-btn {
+   
+ }
+
+ .negative {
+  -webkit-filter: invert(1);
+  filter: invert(1);
  }
 
  .card-div {
-  width: 90%;
+  /* width: 90%; */
  }
 
+ .card-desc {
+  font-size: 1.5vh !important;
+  line-height: 2.5vh !important;
+ }
+
+ .card-reveal {
+
+ }
 
 .btn-icon {
   position: relative;
@@ -32,8 +59,17 @@
  }
 
  .card {
-  height: 30vh;
+  height: 45vh;
   line-height: 18px;
+  background-color: whitesmoke !important;
+ }
+
+ .radius {
+  border-radius: .5vw !important;
+ }
+
+ .top-radius {
+  border-radius: .5vw .5vw 0vw 0vw !important;
  }
 
 nav ul a,
@@ -150,9 +186,14 @@ p {
    }
 
    .card-title {
-    /* text-shadow: 2px 2px 4px #eeff41; */
-    font-size: 6vh !important;
-    line-height: 6.5vh !important;
+    text-shadow: 2px 2px 4px white;
+    font-size: 5.3vh !important;
+    line-height: 6.3vh !important;
+   }
+
+   .card-desc {
+    font-size: 4.5vh !important;
+    line-height: 5.8vh !important;
    }
 
 }
