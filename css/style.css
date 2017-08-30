@@ -77,7 +77,7 @@ nav .brand-logo {
   color: #444;
 }
 
-nav {
+.nav-extended {
   height: 5vh;
 }
 
@@ -162,12 +162,29 @@ p {
     top: 0;
   }
 
+  .link-text {
+    font-family: 'Permanent Marker', cursive;
+    color: #dce775 !important;
+    text-shadow: 2px 2px 4px #000000;
+  }
 
+
+  .mobile-link {
+    display: inline-block !important;
+    
+  }
 
   .navimage {
-    height: 5vh;
-    padding: 2px;
+    height: 50px;
     border-radius: 2px;
+    padding: 0;
+    /* padding: 10px 10px 0px 0px; */
+  }
+
+  .mobile-nav-image {
+    position: absolute;
+    right: 0;
+
   }
 
   .logo {
@@ -176,8 +193,10 @@ p {
   }
 
   nav {
-    height: 28vh;
+    /* height: 28vh; */
   }
+
+
 
   .card {
     height: 80vh;
@@ -187,7 +206,7 @@ p {
 
    .card-title {
     text-shadow: 2px 2px 4px white;
-    font-size: 5.3vh !important;
+    font-size: 4.7vh !important;
     line-height: 6.3vh !important;
    }
 

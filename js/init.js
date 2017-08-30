@@ -10,17 +10,19 @@ var read = (venue) => {
   });
 }
 
+
+// reading in all data
 read('muse');
 read('milestone');
 read('fillmore');
-read('tinroof');
+//read('tinroof');
 read('neighborhood');
 read('visulite');
 read('snug');
 
 // updates w events from selected day (default: today)
 var getDaysEvents = (date) => {
-  $('#date').text(date);
+  $('#date').text(moment(current).format('dddd, MMMM Do'));
   $('.carousel').remove();
   $('.carousel').carousel('destroy');
   // $('.carousel').removeClass('initialized');
@@ -40,19 +42,19 @@ var getDaysEvents = (date) => {
 
 
 // creates fake objects
-var createFakes = () => {
-  var arr = [];
-  var venArr = ['file:///home/ben/Documents/CODE/cltmusic/img/bars/milestone.jpeg','file:///home/ben/Documents/CODE/cltmusic/img/bars/neighborhood.png','file:///home/ben/Documents/CODE/cltmusic/img/bars/rabbithole.png']
-  for (i = 0; i < 4; i++) {
-    arr.push({
-      event: 'Event Title - Band Names' + i,
-      desc: 'Description ' + i + 'description description description description description description description description description description description description description',
-      img:  venArr[i%3],
-      href: 'http://www.google.com'
-    })
-  }
-  return arr;
-}
+// var createFakes = () => {
+//   var arr = [];
+//   var venArr = ['file:///home/ben/Documents/CODE/cltmusic/img/bars/milestone.jpeg','file:///home/ben/Documents/CODE/cltmusic/img/bars/neighborhood.png','file:///home/ben/Documents/CODE/cltmusic/img/bars/rabbithole.png']
+//   for (i = 0; i < 4; i++) {
+//     arr.push({
+//       event: 'Event Title - Band Names' + i,
+//       desc: 'Description ' + i + 'description description description description description description description description description description description description description',
+//       img:  venArr[i%3],
+//       href: 'http://www.google.com'
+//     })
+//   }
+//   return arr;
+// }
 
 
 // create test events
@@ -89,6 +91,12 @@ var createCarouselCard = (obj, numcards) => {
       case 'The Underground':
           logo = 'img/bars/underground.jpg';
           break;
+      case 'McGlohon Theater':
+          logo = 'img/bars/mcglohon.jpg';
+          break
+      case 'Belk Theatre':
+          logo = 'img/bars/belk.jpg';
+          break
       
   }
   console.log('Logo', logo);
@@ -98,7 +106,8 @@ var createCarouselCard = (obj, numcards) => {
   //if numcards 5,6 -> m2
   // if numcards > 6, m1
   console.log(numcards, ' <---- numcards');
-  var msize = 'm1';
+  //default column size for cards
+  var msize = 'm2';
   switch (numcards) {
     case 1:
       msize = 'm4 offset-m4';
@@ -162,11 +171,12 @@ var createCarouselCard = (obj, numcards) => {
   var $t2 = $('<p>', {class: 'card-title reveal-title activator', text: obj.event});
   var $i2 = $('<i>', {class:"material-icons right activator close-icon", text: 'close'});
   $t2.append($i2);
+  var $time = $('<p>', {class: 'activator event-time', text: obj.times});
   var $p = $('<p>', {class: 'activator card-desc', text: obj.desc});
   // <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-  var $tixBtn = $('<a>', {class: 'btn-floating btn-large waves-effect waves-light red tix-btn', text: 'TIX', href: obj.href});
+  var $tixBtn = $('<a>', {target: '_blank', class: 'btn-floating btn-large waves-effect waves-light red tix-btn', text: 'TIX', href: obj.href});
   
-  $revealDiv.append($t2, $p, $tixBtn);
+  $revealDiv.append($t2, $time, $tixBtn, $p);
 
   // append all divs to card
   $card.append($imgDiv, $contentDiv, $revealDiv);
@@ -191,7 +201,7 @@ var nextDate = () => {
   current = moment(current).add(1,'days').format('MM DD YY');
   $('.cards').empty();
   populateCarousel(getDaysEvents(current));
-  $('#current-date').text(moment(current).format('dddd, MMMM Do'));
+  $('.parallax').parallax();
 }
 
 var prevDate = () => {
@@ -199,7 +209,16 @@ var prevDate = () => {
   current = moment(current).subtract(1,'days').format('MM DD YY');
   $('.cards').empty();
   populateCarousel(getDaysEvents(current));
-  $('#current-date').text(moment(current).format('dddd, MMMM Do'));
+  $('.parallax').parallax();
+}
+
+var setDate = () => {
+  console.log('set date');
+  var date = $('#selected-date').val();
+  current = moment(date).format('MM DD YY');
+  $('.cards').empty();
+  populateCarousel(getDaysEvents(current));
+  $('.parallax').parallax();
 }
 
 
@@ -214,6 +233,8 @@ $(function(){
     prevDate();
   });
 
+
+
   //concat all data arrays
   // allEvents = allEvents.concat(muse);
   // allEvents = allEvents.concat(snug);
@@ -225,6 +246,19 @@ $(function(){
   $('.parallax').parallax();
 
   populateCarousel(getDaysEvents(current));
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+
+  $('button.picker__close').click(()=>{
+    console.log('picked date');
+    setDate();
+  })
   //did this in populateCarousel function instead
   //$('.carousel').carousel({full_width: true});
 
