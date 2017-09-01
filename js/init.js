@@ -1,7 +1,49 @@
-// READ IN JSON function
+//current date, setup array of all events in db
 
 var current = moment().format('MM DD YY');
 var allEvents = [];
+
+// function to return gmaps links
+var getGmaps = (venue) => {
+  switch (venue.toLowerCase()) {
+    case 'the underground':
+      return 'https://goo.gl/maps/3kcwmuGkWFQ2';
+      break;
+    case 'snug harbor':
+      return 'https://goo.gl/maps/N3bvqVJcYxG2';
+      break;
+    case 'the fillmore':
+      return 'https://goo.gl/maps/tiV35eB3X592';
+      break;
+    case 'neighborhood theatre':
+      return 'https://goo.gl/maps/7Qd3wBTBTzn';
+      break;
+    case 'evening muse':
+      return 'https://goo.gl/maps/x2rxv5W2eqw';
+      break;
+    case 'the milestone club':
+      return 'https://goo.gl/maps/HhxuakVnJHQ2';
+      break;
+    case 'the tin roof':
+      return 'https://goo.gl/maps/LqNxF92sBe22';
+      break;
+    case 'mcglohon theater':
+      return 'https://goo.gl/maps/dt9xBtpCgyt';
+      break;
+    case 'belk theatre':
+      return 'https://goo.gl/maps/3c8gUDnx9Ak';
+      break;
+    case 'visulite theatre':
+      return 'https://goo.gl/maps/UApzhUTZago';
+      break;  
+    case "hattie's tap and tavern":
+      return 'https://goo.gl/maps/3UGeMT4z6FR2';
+      break;
+  }
+}
+
+
+// READ IN JSON function
 
 var read = (venue) => {
   $.getJSON('./JSON/' + venue.toUpperCase() + '-FULL.json', function(data) {
@@ -19,16 +61,18 @@ read('fillmore');
 read('neighborhood');
 read('visulite');
 read('snug');
+read('hatties');
+
 
 // updates w events from selected day (default: today)
 var getDaysEvents = (date) => {
-  $('#date').text(moment(current).format('dddd, MMMM Do'));
+  $('.date').text(moment(current).format('dddd, MMMM Do'));
   $('.carousel').remove();
   $('.carousel').carousel('destroy');
   // $('.carousel').removeClass('initialized');
   var $carouselDiv = $('<div>', {class: 'carousel'});
   $('.carousel-wrapper').append($carouselDiv);
-  //$('#date').text(current);
+
   console.log(date);
   var daysEvents = [];
   for (i in allEvents) {
@@ -40,25 +84,6 @@ var getDaysEvents = (date) => {
   return daysEvents;
 }
 
-
-// creates fake objects
-// var createFakes = () => {
-//   var arr = [];
-//   var venArr = ['file:///home/ben/Documents/CODE/cltmusic/img/bars/milestone.jpeg','file:///home/ben/Documents/CODE/cltmusic/img/bars/neighborhood.png','file:///home/ben/Documents/CODE/cltmusic/img/bars/rabbithole.png']
-//   for (i = 0; i < 4; i++) {
-//     arr.push({
-//       event: 'Event Title - Band Names' + i,
-//       desc: 'Description ' + i + 'description description description description description description description description description description description description description',
-//       img:  venArr[i%3],
-//       href: 'http://www.google.com'
-//     })
-//   }
-//   return arr;
-// }
-
-
-// create test events
-// var testEvents = createFakes();
 
 var createCarouselCard = (obj, numcards) => {
   var logo;
@@ -79,7 +104,7 @@ var createCarouselCard = (obj, numcards) => {
       case 'The Fillmore':
           logo = 'img/bars/fillmore.png';
           break;
-      case 'The Visulite':
+      case 'Visulite Theatre':
           logo = 'img/bars/visuliteClear.png';
           break;
       case 'The Tinroof':
@@ -93,10 +118,14 @@ var createCarouselCard = (obj, numcards) => {
           break;
       case 'McGlohon Theater':
           logo = 'img/bars/mcglohon.jpg';
-          break
+          break;
       case 'Belk Theatre':
           logo = 'img/bars/belk.jpg';
+          break;
+      case "Hattie's Tap and Tavern":
+          logo = 'img/bars/hatties.png';
           break
+        
       
   }
   console.log('Logo', logo);
@@ -135,15 +164,9 @@ var createCarouselCard = (obj, numcards) => {
   //create card 
   var $card = $('<div>', {class: 'hoverable card-div  card radius indigo lighten-2'});
   
-  // create img and imgDiv
-  
-  // if (false) {
-  //   var $imgDiv = $('<div>', {class: 'card-image center activator white'});
-  //   var $img = $('<img>',{src: logo, class: 'activator card-bar-logo negative', style: 'mix-blend-mode: multiply;'});
-  // } else {
-    var $imgDiv = $('<div>', {class: 'card-image center activator white top-radius'});
-    var $img = $('<img>',{src: logo, class: 'activator card-bar-logo top-radius'});
-  // }
+  var $imgDiv = $('<div>', {class: 'card-image center activator white top-radius'});
+  var $img = $('<img>',{src: logo, class: 'activator card-bar-logo top-radius'});
+
 
   if (obj.venue==='Snug Harbor' || obj.venue === 'The Tin Roof') {
     $imgDiv.removeClass('white');
@@ -162,24 +185,43 @@ var createCarouselCard = (obj, numcards) => {
   //truncated desc
   var $trunc = $('<p>', {class: 'card-desc truncate  activator', text: obj.desc});
   
+  
   $contentDiv.append($t, $trunc);
+
   
 
 
   // reveal-div with description
   var $revealDiv = $('<div>', {class: 'card-reveal activator deep-purple lighten-1'});
-  var $t2 = $('<p>', {class: 'card-title reveal-title activator', text: obj.event});
-  var $i2 = $('<i>', {class:"material-icons right activator close-icon", text: 'close'});
-  $t2.append($i2);
-  var $time = $('<p>', {class: 'activator event-time', text: obj.times});
-  var $p = $('<p>', {class: 'activator card-desc', text: obj.desc});
+  var $t2 = $('<p>', {class: 'card-title reveal-title', text: obj.event});
+  var $i2 = $('<i>', {class:"material-icons close-icon close-icon-top close card-title", text: 'close'});
+  // $t2.append($i2);
+
+  //gmaps link - directions
+  var $gmaps = $('<a>', {class: 'deep-purple lighten-1 gmap-link green-text text-accent-2 flow-text card-desc', target: '_blank', text:'Google Maps -- ' + obj.venue, href: getGmaps(obj.venue)})
+
+  // add image of band here 
+
+  var $time = $('<p>', {class: 'event-time', text: obj.times});
+  var $p = $('<p>', {class: 'card-desc', text: obj.desc});
+  var $i3 = $('<i>', {class:"material-icons close-icon close-icon-bottom close card-title", text: 'close'});
   // <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-  var $tixBtn = $('<a>', {target: '_blank', class: 'btn-floating btn-large waves-effect waves-light red tix-btn', text: 'TIX', href: obj.href});
+  if (obj.venue != "Hattie's Tap and Tavern") {
+    var $tixBtn = $('<a>', {target: '_blank', class: 'btn-floating btn-large waves-effect waves-light red tix-btn', text: 'TIX', href: obj.tix});
+    $revealDiv.append($i2, $t2, $time, $tixBtn, $p, $i3);
+  } else {
+    $revealDiv.append($i2, $t2, $time, $p, $i3);
+  }
   
-  $revealDiv.append($t2, $time, $tixBtn, $p);
+  
+  
+
+  
 
   // append all divs to card
-  $card.append($imgDiv, $contentDiv, $revealDiv);
+  $card.append($imgDiv, $contentDiv, $revealDiv, $gmaps);
+
+  
 
   //append card to container
   $container.append($card);
@@ -193,30 +235,45 @@ var populateCarousel = (arr) => {
   for (var i =0; i<arr.length; i++) {
     createCarouselCard(arr[i], arr.length);
   }
-  // $('.carousel').carousel({full_width: true, noWrap: true});
+  $('.cards').velocity({
+    opacity: 1
+    }, 300, function() {
+    // Animation complete.
+  });
 }
 
 var nextDate = () => {
   console.log('next date');
   current = moment(current).add(1,'days').format('MM DD YY');
-  $('.cards').empty();
-  populateCarousel(getDaysEvents(current));
-  $('.parallax').parallax();
+  //animation
+  $('.cards').velocity({
+        opacity: 0.25
+    }, 300, function() {
+    // Animation complete.
+      $('.cards').empty();
+      populateCarousel(getDaysEvents(current));
+      $('.parallax').parallax();
+  });
 }
 
 var prevDate = () => {
   console.log('prev date');
   current = moment(current).subtract(1,'days').format('MM DD YY');
-  $('.cards').empty();
-  populateCarousel(getDaysEvents(current));
-  $('.parallax').parallax();
+  $('.cards').velocity({
+        opacity: 0.25
+  }, 300, function() {
+    // Animation complete.
+    $('.cards').empty();
+    populateCarousel(getDaysEvents(current));
+    $('.parallax').parallax();
+    
+  });
 }
 
 var setDate = () => {
   console.log('set date');
   var date = $('#selected-date').val();
   current = moment(date).format('MM DD YY');
-  $('.cards').empty();
   populateCarousel(getDaysEvents(current));
   $('.parallax').parallax();
 }
@@ -225,11 +282,11 @@ var setDate = () => {
 
 $(function(){
   //next AND PREV date button
-  $('#next').click(()=>{
+  $('.next').on('click', ()=>{
     nextDate();
   });
 
-  $('#prev').click(()=>{
+  $('.prev').on('click', ()=>{
     prevDate();
   });
 
@@ -242,23 +299,38 @@ $(function(){
   // allEvents = allEvents.concat(milestone);
 
   
+  
   $('.button-collapse').sideNav();
   $('.parallax').parallax();
 
-  populateCarousel(getDaysEvents(current));
-  $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false // Close upon selecting a date,
-  });
+  setTimeout(()=>{
+    populateCarousel(getDaysEvents(current));
+    
+    // close button handler
+    // $('.close-icon').on("click", (event)=>{
+    //   console.log(event);
+    //   // console.log('close');
+    //   // $(this).parent('.card-title').click();
+    // })
+    
+  }, 1200) 
 
-  $('button.picker__close').click(()=>{
-    console.log('picked date');
-    setDate();
-  })
+
+  
+  // $('.datepicker').pickadate({
+  //   selectMonths: true, // Creates a dropdown to control month
+  //   selectYears: 15, // Creates a dropdown of 15 years to control year,
+  //   today: 'Today',
+  //   clear: 'Clear',
+  //   close: 'Ok',
+  //   closeOnSelect: false // Close upon selecting a date,
+  // });
+
+  // $('button.picker__close').click(()=>{
+  //   console.log('picked date');
+  //   setDate();
+  // })
+
   //did this in populateCarousel function instead
   //$('.carousel').carousel({full_width: true});
 

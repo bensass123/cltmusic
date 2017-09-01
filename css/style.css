@@ -12,14 +12,51 @@
 
 /* #25165e - new hornets purp */
 
+.cards {
+  opacity: .25;
+}
 
+.date {
+  text-shadow: 1px 1px 4px #000000;
+  font-weight: boldest;
+}
+
+.close-icon-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.tix-btn-front {
+  position: absolute;
+  bottom: 81px;
+  left: 36%;
+}
+
+.close-icon-bottom {
+  /* position: absolute; */
+}
+
+.gmap-link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-shadow: 2px 2px 4px #000000;
+  font-weight: boldest;
+}
+
+.card-content {
+  position: relative;
+}
 
  .card-title {
   text-shadow: 2px 2px 4px black; 
   font-size: 1.6vh !important;
   line-height: 2.2vh !important;
   color: whitesmoke !important;
-  font-weight: boldest !important;
+  font-weight: 800 !important;
+  
   /* -webkit-text-stroke: .4px black !important; */
  }
 
@@ -33,7 +70,7 @@
  }
 
  .card-div {
-  /* width: 90%; */
+  position:relative;
  }
 
  .card-desc {
@@ -42,7 +79,7 @@
  }
 
  .card-reveal {
-
+  position: relative;
  }
 
 .btn-icon {
@@ -205,7 +242,7 @@ p {
    }
 
    .card-title {
-    text-shadow: 2px 2px 4px white;
+    text-shadow: 1px 1px 4px white;
     font-size: 4.7vh !important;
     line-height: 6.3vh !important;
    }

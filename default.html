@@ -53,14 +53,14 @@
 
       <a href="https://www.coyote-joes.com/" target="_blank"><img src="img/bars/coyote.png" alt="Coyote Joes" class='navimage'></a>
 
-      <form onsubmit="setDate(); return false;">
+      <!-- <form onsubmit="setDate(); return false;"> -->
         <div class='date-btn-div deep-orange lighten-1'>
-          <a class="waves-effect waves-light btn-floating orange darken-2 black-text date-btn" id ='prev'><i class="btn-icon material-icons left valign-wrapper">arrow_back</i></a>
-          <input style='display: none;' type="hidden" id='selected-date' class="datepicker">
-          <span id='date' class='datepicker'></span>
-          <a class="waves-effect waves-light btn-floating orange darken-2 black-text date-btn" id ='next'><i class="btn-icon material-icons right valign-wrapper">arrow_forward</i></a>
+          <a class="waves-effect waves-light btn-floating orange darken-2 black-text date-btn prev"><i class="btn-icon material-icons left valign-wrapper">arrow_back</i></a>
+          <!-- <input style='display: none;' type="hidden" id='selected-date' class="datepicker"> -->
+          <span class='date'></span>
+          <a class="waves-effect waves-light btn-floating orange darken-2 black-text date-btn next"><i class="btn-icon material-icons right valign-wrapper">arrow_forward</i></a>
         </div>
-      </form>
+      <!-- </form> -->
 
      </div>
     </nav>
@@ -85,6 +85,12 @@
           <div class="divider"></div>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <div class='deep-orange lighten-1 hide-on-large-only'>
+        <a class="waves-effect waves-light btn-floating orange darken-2 black-text date-btn prev"><i class="btn-icon material-icons left valign-wrapper">arrow_back</i></a>
+        <!-- <input style='display: none;' type="hidden" id='selected-date' class="datepicker"> -->
+        <span class='date'></span>
+        <a class="waves-effect waves-light btn-floating orange darken-2 black-text date-btn next"><i class="btn-icon material-icons right valign-wrapper">arrow_forward</i></a>
+      </div>
       </nav>
     
 
