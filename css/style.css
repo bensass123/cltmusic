@@ -109,6 +109,10 @@
   border-radius: .5vw .5vw 0vw 0vw !important;
  }
 
+ .bottom-radius {
+  border-radius: 0vw 0vw .5vw .5vw !important;
+ }
+
 nav ul a,
 nav .brand-logo {
   color: #444;

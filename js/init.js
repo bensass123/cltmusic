@@ -57,7 +57,7 @@ var read = (venue) => {
 read('muse');
 read('milestone');
 read('fillmore');
-//read('tinroof');
+read('tinroof');
 read('neighborhood');
 read('visulite');
 read('snug');
@@ -198,7 +198,7 @@ var createCarouselCard = (obj, numcards) => {
   // $t2.append($i2);
 
   //gmaps link - directions
-  var $gmaps = $('<a>', {class: 'deep-purple lighten-1 gmap-link green-text text-accent-2 flow-text card-desc', target: '_blank', text:'Google Maps -- ' + obj.venue, href: getGmaps(obj.venue)})
+  var $gmaps = $('<a>', {class: 'deep-purple lighten-1 gmap-link green-text text-accent-2 flow-text card-desc bottom-radius', target: '_blank', text:'Google Maps -- ' + obj.venue, href: getGmaps(obj.venue)})
 
   // add image of band here 
 
