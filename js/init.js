@@ -1,6 +1,6 @@
 //current date, setup array of all events in db
 
-var current = moment().format('MM DD YY');
+var current = moment().format('L');
 var allEvents = [];
 
 // function to return gmaps links
@@ -39,6 +39,24 @@ var getGmaps = (venue) => {
     case "hattie's tap and tavern":
       return 'https://goo.gl/maps/3UGeMT4z6FR2';
       break;
+    case "the station":
+      return 'https://goo.gl/maps/ciydBpkrrew';
+      break;
+    case "coyote joes":
+      return 'https://goo.gl/maps/CFyTVFy56dm';
+      break;
+    case "the rabbit hole":
+      return 'https://goo.gl/maps/dXKVZpUtQzM2';
+      break;
+    case "the peculiar rabbit":
+      return 'https://goo.gl/maps/APvjtQmbGEA2';
+      break;
+    case "jackalope jack's restaurant & bar":
+      return 'https://goo.gl/maps/yj6stVpM4tv';
+      break;
+    case "smokey joe's cafe":
+      return 'https://goo.gl/maps/yj6stVpM4tv';
+      break;
   }
 }
 
@@ -62,6 +80,10 @@ read('neighborhood');
 read('visulite');
 read('snug');
 read('hatties');
+read('station');
+read('coyote');
+read('rabbits');
+read('smokeyjoes');
 
 
 // updates w events from selected day (default: today)
@@ -96,10 +118,10 @@ var createCarouselCard = (obj, numcards) => {
           logo = 'img/bars/tinroof.png';
           break;
       case 'Evening Muse':
-          logo = 'img/bars/muse.png';
+          logo = 'img/bars/muse.jpg';
           break;
       case 'The Milestone Club':
-          logo = 'img/bars/milestone.jpeg';
+          logo = 'img/bars/milestonewide.png';
           break;
       case 'The Fillmore':
           logo = 'img/bars/fillmore.png';
@@ -111,7 +133,7 @@ var createCarouselCard = (obj, numcards) => {
           logo = 'img/bars/tinroof.png';
           break;
       case 'Neighborhood Theatre':
-          logo = 'img/bars/neighborhood.png';
+          logo = 'img/bars/neighborhoodwide.jpg';
           break;
       case 'The Underground':
           logo = 'img/bars/underground.jpg';
@@ -124,10 +146,27 @@ var createCarouselCard = (obj, numcards) => {
           break;
       case "Hattie's Tap and Tavern":
           logo = 'img/bars/hatties.png';
-          break
-        
-      
+          break;
+      case "The Station":
+          logo = 'img/bars/station.png';
+          break;
+      case "Coyote Joes":
+          logo = 'img/bars/coyote.png';
+          break;
+      case "The Rabbit Hole":
+          logo = 'img/bars/rabbithole2.png';
+          break;
+      case "The Peculiar Rabbit":
+          logo = 'img/bars/peculiarrabbit.jpg';
+          break;
+      case "Jackalope Jack's Restaurant & Bar":
+          logo = 'img/bars/jacks.png';
+          break;
+      case "Smokey Joe's Cafe":
+          logo = 'img/bars/smokeyjoes.jpg';
+          break;
   }
+
   console.log('Logo', logo);
 
 
@@ -162,13 +201,13 @@ var createCarouselCard = (obj, numcards) => {
   var $container = $('<div>', {class: 'col s12 ' + msize});
 
   //create card 
-  var $card = $('<div>', {class: 'hoverable card-div  card radius indigo lighten-2'});
+  var $card = $('<div>', {class: 'card-div  card radius indigo lighten-2'});
   
   var $imgDiv = $('<div>', {class: 'card-image center activator white top-radius'});
   var $img = $('<img>',{src: logo, class: 'activator card-bar-logo top-radius'});
 
 
-  if (obj.venue==='Snug Harbor' || obj.venue === 'The Tin Roof') {
+  if (obj.venue==='Snug Harbor' || obj.venue === 'The Tin Roof'|| obj.venue === 'The Milestone Club') {
     $imgDiv.removeClass('white');
     $imgDiv.addClass('black');
   }
@@ -198,7 +237,7 @@ var createCarouselCard = (obj, numcards) => {
   // $t2.append($i2);
 
   //gmaps link - directions
-  var $gmaps = $('<a>', {class: 'deep-purple lighten-1 gmap-link green-text text-accent-2 flow-text card-desc bottom-radius', target: '_blank', text:'Google Maps -- ' + obj.venue, href: getGmaps(obj.venue)})
+  var $gmaps = $('<a>', {class: 'deep-purple lighten-1 gmap-link green-text text-accent-2 flow-text bottom-radius', target: '_blank', text:'Google Maps -- ' + obj.venue, href: getGmaps(obj.venue)})
 
   // add image of band here 
 
@@ -213,15 +252,8 @@ var createCarouselCard = (obj, numcards) => {
     $revealDiv.append($i2, $t2, $time, $p, $i3);
   }
   
-  
-  
-
-  
-
-  // append all divs to card
+    // append all divs to card
   $card.append($imgDiv, $contentDiv, $revealDiv, $gmaps);
-
-  
 
   //append card to container
   $container.append($card);
@@ -244,7 +276,7 @@ var populateCarousel = (arr) => {
 
 var nextDate = () => {
   console.log('next date');
-  current = moment(current).add(1,'days').format('MM DD YY');
+  current = moment(current).add(1,'days').format('L');
   //animation
   $('.cards').velocity({
         opacity: 0.25
@@ -252,20 +284,20 @@ var nextDate = () => {
     // Animation complete.
       $('.cards').empty();
       populateCarousel(getDaysEvents(current));
-      $('.parallax').parallax();
+      // $('.parallax').parallax();
   });
 }
 
 var prevDate = () => {
   console.log('prev date');
-  current = moment(current).subtract(1,'days').format('MM DD YY');
+  current = moment(current).subtract(1,'days').format('L');
   $('.cards').velocity({
         opacity: 0.25
   }, 300, function() {
     // Animation complete.
     $('.cards').empty();
     populateCarousel(getDaysEvents(current));
-    $('.parallax').parallax();
+    // $('.parallax').parallax();
     
   });
 }
@@ -273,12 +305,10 @@ var prevDate = () => {
 var setDate = () => {
   console.log('set date');
   var date = $('#selected-date').val();
-  current = moment(date).format('MM DD YY');
+  current = moment(date).format('L');
   populateCarousel(getDaysEvents(current));
-  $('.parallax').parallax();
+  // $('.parallax').parallax();
 }
-
-
 
 $(function(){
   //next AND PREV date button
@@ -290,48 +320,10 @@ $(function(){
     prevDate();
   });
 
-
-
-  //concat all data arrays
-  // allEvents = allEvents.concat(muse);
-  // allEvents = allEvents.concat(snug);
-  // allEvents = allEvents.concat(tinroof);
-  // allEvents = allEvents.concat(milestone);
-
-  
-  
   $('.button-collapse').sideNav();
-  $('.parallax').parallax();
 
   setTimeout(()=>{
-    populateCarousel(getDaysEvents(current));
-    
-    // close button handler
-    // $('.close-icon').on("click", (event)=>{
-    //   console.log(event);
-    //   // console.log('close');
-    //   // $(this).parent('.card-title').click();
-    // })
-    
+    populateCarousel(getDaysEvents(current));    
   }, 1200) 
-
-
-  
-  // $('.datepicker').pickadate({
-  //   selectMonths: true, // Creates a dropdown to control month
-  //   selectYears: 15, // Creates a dropdown of 15 years to control year,
-  //   today: 'Today',
-  //   clear: 'Clear',
-  //   close: 'Ok',
-  //   closeOnSelect: false // Close upon selecting a date,
-  // });
-
-  // $('button.picker__close').click(()=>{
-  //   console.log('picked date');
-  //   setDate();
-  // })
-
-  //did this in populateCarousel function instead
-  //$('.carousel').carousel({full_width: true});
 
 }); // end of document ready

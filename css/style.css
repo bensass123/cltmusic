@@ -12,13 +12,74 @@
 
 /* #25165e - new hornets purp */
 
+
+
+.maincontainer {
+  top: -3%;
+  position: relative;
+}
+
+.row {
+  margin-top: 2.5vh;
+}
+
+.prev {
+  position: relative;
+  left: 5%;
+  box-shadow: 0 0 20px 1px whitesmoke;
+}
+
+.next {
+  position: relative;
+  right: 5%;
+  box-shadow: 0 0 20px 1px whitesmoke;
+}
+
+.date-btn {
+  position: relative;
+  top: -2px;
+}
+
+
+.date-btn-div {
+  /* border: 3px solid #dce775; */
+  border-radius: 5px;
+  padding: 10px !important;
+  position: relative;
+  top: 10px;
+  box-shadow: 0 0 40px 3px #9C2542,
+              0 0 40px 3px #9C2542 inset;
+}
+
+.header2 {
+  text-shadow: 1px 1px 4px #000000;
+}
+
+
+.section {
+  background-image: url("../img/cltskycrop.jpg");
+  background-size: cover;
+  height: 100vh;
+  border-color: #8DED8E;
+  border-width: 4px 4px 0px 4px;
+  box-shadow: 0 0 50px 8px #25165e inset;
+  
+}
+
 .cards {
   opacity: .25;
 }
 
 .date {
   text-shadow: 1px 1px 4px #000000;
-  font-weight: boldest;
+  color: whitesmoke;
+  font-size: 1.6rem;
+  line-height: 40px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  letter-spacing: 1px;
+  position: relative;
+  top: 2px;
 }
 
 .close-icon-top {
@@ -34,7 +95,7 @@
 }
 
 .close-icon-bottom {
-  /* position: absolute; */
+  
 }
 
 .gmap-link {
@@ -44,10 +105,13 @@
   width: 100%;
   text-shadow: 2px 2px 4px #000000;
   font-weight: boldest;
+  font-size: .9rem !important;
+  line-height: .9rem !important;
 }
 
 .card-content {
   position: relative;
+  top: -3%;
 }
 
  .card-title {
@@ -71,6 +135,7 @@
 
  .card-div {
   position:relative;
+  box-shadow: 0 0 70px 2px #25165e;
  }
 
  .card-desc {
@@ -83,8 +148,7 @@
  }
 
 .btn-icon {
-  position: relative;
-  top: -14px;
+  
  }
 
 
@@ -96,7 +160,7 @@
  }
 
  .card {
-  height: 45vh;
+  height: 28vh;
   line-height: 18px;
   background-color: whitesmoke !important;
  }
@@ -186,7 +250,16 @@ p {
     top: 40%;
   }
   #index-banner .section {
-    top: 10%;
+    /* top: 10%; */
+  }
+
+  .date {
+
+    padding-left: 0;
+    /* padding-right: 0;  */
+    /* letter-spacing: 1px; */
+    font-size: 1rem;
+    /* line-height: 40px; */
   }
 
 
@@ -194,6 +267,26 @@ p {
     width: 85vw;
     height: 61vw;
   }
+
+  .date-btn {
+    position: relative;
+    top: 0;
+  }
+
+  .btn-icon {
+    position: relative;
+    top: -8px;
+  }
+
+  .row {
+    margin-top: 0;
+  }
+
+  .gmap-link {
+    font-size: 3vh !important;
+    line-height: 3.5vh !important;
+  }
+
 
 
 }
@@ -222,6 +315,8 @@ p {
     /* padding: 10px 10px 0px 0px; */
   }
 
+  
+
   .mobile-nav-image {
     position: absolute;
     right: 0;
@@ -240,15 +335,20 @@ p {
 
 
   .card {
-    height: 80vh;
+    height: 58vh;
     line-height: 18px;
     width:100%;
+    overflow: hidden;
    }
 
    .card-title {
-    text-shadow: 1px 1px 4px white;
-    font-size: 4.7vh !important;
-    line-height: 6.3vh !important;
+    text-shadow: 2px 2px 4px black; 
+    font-size: 3.8vh !important;
+    line-height: 5.3vh !important;
+    color: whitesmoke !important;
+    font-weight: 800 !important;
+    
+    /* -webkit-text-stroke: .4px black !important; */
    }
 
    .card-desc {
